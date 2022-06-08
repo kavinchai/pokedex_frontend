@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
 import "../css/MainScreen.css";
-class App extends React.Component {
-  state = {
-    pokemonPage: 2,
-  };
 
-  loadPokemon = () => {
-    this.setState({ pokemonPage: 1 });
-  };
+function App() {
+  const [pokemonPage, setPokemonPage] = useState(1);
 
-  getPokemonFromApi = async () => {
+  //   const loadPokemon = (e) => {
+  //     // this.setState({ pokemonPage: 1 });
+  //     setPokemonPage(e);
+  //   };
+
+  const getPokemonFromApi = async () => {
     const api_call = await fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${this.pokemonPage}`
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
     );
     const data = await api_call.json();
     console.log(data);
   };
 
-  render() {
-    return (
-      <div className="mainContainer">
-        <SearchBar getPokemonFromApi={this.getPokemonFromApi} />
-        <PokemonList />
-      </div>
-    );
-  }
+  return (
+    <div className="mainContainer">
+      <SearchBar getPokemonFromApi={getPokemonFromApi} />
+      <PokemonList />
+    </div>
+  );
 }
 
 export default App;
