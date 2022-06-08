@@ -1,0 +1,135 @@
+.pokemon-selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px 72px;
+  gap: 32px;
+
+  position: absolute;
+  height: 96px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  background: rgba(245, 235, 255, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.pokedex {
+  /* Pokédex */
+
+  width: 122px;
+  height: 40px;
+
+  /* Headline / Large */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  /* identical to box height, or 125% */
+
+  text-align: center;
+
+  color: #181222;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.pokemon-searchBar {
+  /* Search Field */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+
+  width: 1006px;
+  height: 48px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8px;
+
+  /* Body / Large */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: 0.5px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.navButtonLeft {
+  /* Nav Button */
+
+  width: 40px;
+  height: 40px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  border-radius: 100px;
+
+  background-color: #574f62;
+  mix-blend-mode: normal;
+}
+
+.navButtonRight {
+  /* Nav Button */
+
+  width: 40px;
+  height: 40px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  border-radius: 100px;
+
+  background-color: #574f62;
+  mix-blend-mode: normal;
+}
+
+/* .fa-arrow-left {
+  border: 2px solid #fdf4ff;
+  position: absolute;
+}
+
+.fa-arrow-right {
+  border: 2px solid #fdf4ff;
+  position: absolute;
+} */
