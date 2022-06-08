@@ -12,8 +12,12 @@ class SearchBar extends React.Component {
   };
   render() {
     return (
-      <form className="pokemon-selector" onsubmit={this.findPokemon}>
-        <button className="navButtonLeft" type="submit">
+      <form className="pokemon-selector" onSubmit={this.findPokemon}>
+        <button
+          className="navButtonLeft"
+          type="submit"
+          onClick={this.props.getPokemonFromApi}
+        >
           <FaArrowLeft style={{ color: "#FDF4FF" }} />
         </button>
         <p className="pokedex">Pokedéx</p>
