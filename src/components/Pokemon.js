@@ -1,12 +1,16 @@
 import React from "react";
 
-const Pokemon = (props) => {
-  const { id, name, image, types } = props;
+const Pokemon = ({ details }) => {
+  const { id, name, image, types } = details;
   return (
     <li className="pokemonContainer">
-      <h3 className="pokemonName">{name}</h3>
+      <div className="pokemonName">{name}</div>
       <img src={image} alt={name} className="pokemonImage"></img>
-      <div className="pokemonTypes">{types}</div>
+      <div className="pokemonTypes">
+        {Object.keys(types).map((key) => (
+          <div>{types[key]}</div>
+        ))}
+      </div>
     </li>
   );
 };

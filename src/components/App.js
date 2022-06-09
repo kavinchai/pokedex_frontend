@@ -19,7 +19,6 @@ function App() {
   const [pokemonList, setPokemonList] = useState(
     getPokemonFromApi(pokemonPage)
   );
-
   return (
     <div className="mainContainer">
       <SearchBar

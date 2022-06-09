@@ -9,15 +9,6 @@ const SearchBar = ({
   pokemonList,
   setPokemonList,
 }) => {
-  const getPokemonFromApi = async (pokemonPage) => {
-    fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setPokemonList(data.data);
-      });
-  };
   return (
     <div className="pokemon-selector">
       <button
@@ -25,7 +16,7 @@ const SearchBar = ({
         type="submit"
         onClick={() => {
           setPokemonPage(pokemonPage === 1 ? 1 : pokemonPage - 1);
-          setPokemonList(pokemonList);
+          // setPokemonList(pokemonList);
         }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
@@ -43,7 +34,7 @@ const SearchBar = ({
         type="submit"
         onClick={() => {
           setPokemonPage(pokemonPage + 1);
-          setPokemonList(pokemonList);
+          // setPokemonList(pokemonList);
         }}
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />
