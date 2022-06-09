@@ -1,28 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/PokemonList.css";
+import Pokemon from "./Pokemon";
 
-function PokemonList() {
-  //   loadPokemonSet = () => {
-  //     this.setState({ pokemons: sampleFishes });
-  //   };
-
+const PokemonList = ({ pokemonList }) => {
   return (
-    //   <div className="pokemonList">
-    //     <div className="row1">
-    //       <div className="pokemon"></div>
-    //     </div>
-    //     <div className="row2"></div>
-    //     <div className="row3"></div>
-    //   </div>
     <div className="pokemonList">
-      {/* <ul className="pokemons">
-          {Object.keys(this.state.pokemons).map((key) => (
-            <Pokemon key={key} index={key} details={this.state.pokemons[key]} />
-          ))}
-        </ul> */}
-      <p>test</p>
+      <ul className="pokemons">
+        {/* {Object.keys(pokemonList).map((key) => (
+          <Pokemon key={key} index={key} details={pokemonList[key]} />
+        ))} */}
+      </ul>
+      <div>{JSON.stringify(pokemonList)}</div>
     </div>
   );
-}
+};
 
 export default PokemonList;

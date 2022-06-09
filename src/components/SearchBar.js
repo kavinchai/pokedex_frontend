@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/SearchBar.css";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "typeface-roboto";
 
-function SearchBar() {
-  const myInput = React.createRef();
-  //   const findPokemon = (event) => {
-  //     event.preventDefault();
-  //     const pokemonName = this.myInput.current.value;
-  //     this.props.history.push(`/store/${pokemonName}`);
-  //   };
-
+const SearchBar = ({
+  pokemonPage,
+  setPokemonPage,
+  pokemonList,
+  setPokemonList,
+}) => {
+  const getPokemonFromApi = async (pokemonPage) => {
+    fetch(
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemonList(data.data);
+      });
+  };
   return (
-    <form className="pokemon-selector" onSubmit={this.findPokemon}>
+    <div className="pokemon-selector">
       <button
         className="navButtonLeft"
         type="submit"
-        onClick={this.props.getPokemonFromApi}
+        onClick={() => {
+          setPokemonPage(pokemonPage === 1 ? 1 : pokemonPage - 1);
+          setPokemonList(pokemonList);
+        }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
       </button>
@@ -28,11 +38,18 @@ function SearchBar() {
         placeholder="Search"
       />
 
-      <button className="navButtonRight" type="submit">
+      <button
+        className="navButtonRight"
+        type="submit"
+        onClick={() => {
+          setPokemonPage(pokemonPage + 1);
+          setPokemonList(pokemonList);
+        }}
+      >
         <FaArrowRight style={{ color: "#FDF4FF" }} />
       </button>
-    </form>
+    </div>
   );
-}
+};
 
 export default SearchBar;
