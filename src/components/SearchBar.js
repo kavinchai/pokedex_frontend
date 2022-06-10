@@ -3,12 +3,7 @@ import "../css/SearchBar.css";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "typeface-roboto";
 
-const SearchBar = ({
-  pokemonPage,
-  setPokemonPage,
-  pokemonList,
-  setPokemonList,
-}) => {
+const SearchBar = ({ pokemonPage, setPokemonPage }) => {
   return (
     <div className="pokemon-selector">
       <button
@@ -16,7 +11,6 @@ const SearchBar = ({
         type="submit"
         onClick={() => {
           setPokemonPage(pokemonPage === 1 ? 1 : pokemonPage - 1);
-          // setPokemonList(pokemonList);
         }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
@@ -34,7 +28,6 @@ const SearchBar = ({
         type="submit"
         onClick={() => {
           setPokemonPage(pokemonPage + 1);
-          // setPokemonList(pokemonList);
         }}
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />

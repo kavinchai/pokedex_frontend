@@ -8,7 +8,9 @@ const Pokemon = ({ details }) => {
       <img src={image} alt={name} className="pokemonImage"></img>
       <div className="pokemonTypes">
         {Object.keys(types).map((key) => (
-          <div>{types[key]}</div>
+          <div key={key} index={key}>
+            {types[key]}
+          </div>
         ))}
       </div>
     </li>
