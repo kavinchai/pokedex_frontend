@@ -13,17 +13,13 @@ const SearchBar = ({
 }) => {
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
-    if (searchInput.length !== "") {
-      const filteredData = pokemonList.filter((item) => {
-        return Object.values(item.name)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults(pokemonList);
-    }
+    const filteredData = pokemonList.filter((item) => {
+      return Object.values(item.name)
+        .join("")
+        .toLowerCase()
+        .includes(searchValue.toLowerCase());
+    });
+    setFilteredResults(filteredData);
   };
   return (
     <div className="pokemon-selector">
