@@ -1,16 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "../css/SearchBar.css";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "typeface-roboto";
 
-const SearchBar = ({ pokemonPage, setPokemonPage }) => {
+const SearchBar = ({
+  pokePage,
+  setPokePage,
+  pokemonList,
+  setFilteredResults,
+  searchInput,
+  setSearchInput,
+}) => {
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput.length !== "") {
+      const filteredData = pokemonList.filter((item) => {
+        return Object.values(item.name)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(pokemonList);
+    }
+  };
   return (
     <div className="pokemon-selector">
       <button
         className="navButtonLeft"
         type="submit"
         onClick={() => {
-          setPokemonPage(pokemonPage === 1 ? 1 : pokemonPage - 1);
+          setPokePage(pokePage === 1 ? 1 : pokePage - 1);
         }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
@@ -19,15 +40,15 @@ const SearchBar = ({ pokemonPage, setPokemonPage }) => {
       <input
         className="pokemon-searchBar"
         type="text"
-        required
+        value={searchInput}
+        onChange={(e) => searchItems(e.target.value)}
         placeholder="Search"
       />
-
       <button
         className="navButtonRight"
         type="submit"
         onClick={() => {
-          setPokemonPage(pokemonPage + 1);
+          setPokePage(pokePage + 1);
         }}
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />

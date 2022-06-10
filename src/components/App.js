@@ -4,11 +4,12 @@ import PokemonList from "./PokemonList";
 import "../css/MainScreen.css";
 
 function App() {
-  const [pokemonPage, setPokemonPage] = useState(1);
-
+  const [pokePage, setPokePage] = useState(1);
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredResults, setFilteredResults] = useState([]);
   const getPokemonFromApi = async () => {
     const response = await fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokePage}`
     );
     const json = await response.json();
     console.log(json.data);
@@ -19,12 +20,23 @@ function App() {
 
   useEffect(() => {
     getPokemonFromApi();
-  }, [pokemonPage]);
+  }, [pokePage]);
 
   return (
     <div className="mainContainer">
-      <SearchBar pokemonPage={pokemonPage} setPokemonPage={setPokemonPage} />
-      <PokemonList pokemonList={pokemonList} />
+      <SearchBar
+        pokePage={pokePage}
+        setPokePage={setPokePage}
+        pokemonList={pokemonList}
+        setFilteredResults={setFilteredResults}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+      />
+      <PokemonList
+        pokemonList={pokemonList}
+        searchInput={searchInput}
+        filteredResults={filteredResults}
+      />
     </div>
   );
 }
