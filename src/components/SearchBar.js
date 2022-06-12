@@ -33,13 +33,17 @@ const SearchBar = ({
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
       </button>
       <p className="pokedex">Pokedéx</p>
-      <input
-        className="pokemon-searchBar"
-        type="text"
-        value={searchInput}
-        onChange={(e) => searchItems(e.target.value)}
-        placeholder="Search"
-      />
+      <div className="pokemon-searchBarContainer">
+        <input
+          className="pokemon-searchBar"
+          type="text"
+          value={searchInput}
+          onChange={(e) => searchItems(e.target.value)}
+          placeholder="Search"
+        />
+        {/* <FaSearch style={{ color: "#FDF4FF", order: 1 }} /> */}
+      </div>
+
       <button
         className="navButtonRight"
         type="submit"

@@ -44,7 +44,15 @@
   flex-grow: 0;
 }
 
+.pokemon-searchBarContainer {
+  width: 80%;
+}
+
 .pokemon-searchBar {
+  background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+
   box-sizing: border-box;
 
   display: flex;
@@ -54,7 +62,7 @@
   padding: 12px;
   gap: 16px;
 
-  width: 80%;
+  width: 100%;
   height: 48px;
 
   background: #ffffff;
