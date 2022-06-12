@@ -1,9 +1,9 @@
 .pokemonListContainer {
   background: #fdf4ff;
-  /* height: 100vh; */
-  display: flex;
+  height: 100vh;
 }
 .pokemonData {
+  background: #fdf4ff;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
