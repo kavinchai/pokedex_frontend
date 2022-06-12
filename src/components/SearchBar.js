@@ -44,7 +44,7 @@ const SearchBar = ({
         className="navButtonRight"
         type="submit"
         onClick={() => {
-          setPokePage(pokePage + 1);
+          setPokePage(pokePage + 1 < 38 ? pokePage + 1 : 37);
         }}
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />
