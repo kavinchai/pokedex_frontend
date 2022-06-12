@@ -1,19 +1,25 @@
 import React from "react";
-
+import "../css/Pokemon.css";
 const Pokemon = ({ details }) => {
-  const { id, name, image, types } = details;
+  const { name, image, types } = details;
   return (
-    <li className="pokemonContainer">
-      <div className="pokemonName">{name}</div>
-      <img src={image} alt={name} className="pokemonImage"></img>
-      <div className="pokemonTypes">
-        {Object.keys(types).map((key) => (
-          <div key={key} index={key}>
-            {types[key]}
-          </div>
-        ))}
+    <div className="pokemonContainer">
+      <div className="pokeNameContainer">
+        <div className="pokeName">{name}</div>
       </div>
-    </li>
+      <div className="pokeImgContainer">
+        <img src={image} alt={name} className="pokeImg"></img>
+      </div>
+      <div className="pokeTypeContainer">
+        <div className="pokemonTypes">
+          {Object.keys(types).map((key) => (
+            <div key={key} index={key}>
+              {types[key]}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
