@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import App from "./App";
-import PokemonDetails from "./PokemonDetails";
+import PokemonInfo from "./PokemonInfo";
 
 function Router() {
   return (
     <>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/pokemonDetails/:PokemonId" element={<PokemonDetails />} />
+        <Route path="/pokemonInfo/:pokemonId" element={<PokemonInfo />} />
       </Routes>
     </>
   );

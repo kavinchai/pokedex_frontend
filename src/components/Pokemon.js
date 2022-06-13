@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 const Pokemon = ({ details }) => {
   let navigate = useNavigate();
   const { id, name, image, types } = details;
-  const goToPokemonDetails = () => {
+  const goToPokemonInfo = () => {
     console.log({ id });
-    navigate(`/pokemonDetails/${id}`);
+    navigate(`/pokemonInfo/${id}`);
   };
   return (
-    <button className="pokemonContainer" onClick={goToPokemonDetails}>
+    <button className="pokemonContainer" onClick={goToPokemonInfo}>
       <div className="pokeNameContainer">
         <div className="pokeName">{name}</div>
       </div>
@@ -18,9 +18,9 @@ const Pokemon = ({ details }) => {
       </div>
       <div className="pokeTypeContainer">
         <div className="pokemonTypes">
-          {Object.keys(types).map((key) => (
-            <div key={key} className={types[key]}>
-              {types[key]}
+          {types.map((key) => (
+            <div key={key} className={key}>
+              {key}
             </div>
           ))}
         </div>

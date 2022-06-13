@@ -1,0 +1,110 @@
+.pokeInfoHeader {
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 32px 72px;
+
+  position: relative;
+  height: auto;
+  width: auto;
+}
+.pokemonNameHeader {
+  width: 85%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: row;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  margin: auto;
+  background-color: red;
+}
+.navButtonLeft {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  flex: none;
+
+  flex-direction: row;
+  border: none;
+  border-radius: 100px;
+  background-color: #574f62;
+  mix-blend-mode: normal;
+}
+
+.pokeInfoBody {
+  background-color: green;
+  height: 100vh;
+}
+
+.pokemonCard {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  width: 800px;
+  height: 820px;
+
+  top: 144px;
+  left: 25%;
+
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.pokemonCardHeader {
+  display: flex;
+  flex-direction: row;
+}
+
+.pokemonCardName {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  position: relative;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+.pokemonCardId {
+  color: #181222;
+  mix-blend-mode: normal;
+  opacity: 0.32;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  margin-top: 40px;
+  margin-left: 16px;
+}
+.blankSpace {
+  margin-left: auto;
+}
+
+.pokemonCardTypes {
+  margin-top: 40px;
+  margin-right: 40px;
+  align-self: center;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  gap: 10px;
+  box-sizing: border-box;
+
+  font-family: "Roboto";
+  font-style: normal;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
