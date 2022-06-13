@@ -26,8 +26,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* width: 122px; */
-  /* height: 40px; */
 
   font-family: "Roboto";
   font-style: normal;
@@ -49,10 +47,6 @@
 }
 
 .pokemon-searchBar {
-  background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png");
-  background-repeat: no-repeat;
-  background-position: left center;
-
   box-sizing: border-box;
 
   display: flex;
@@ -60,6 +54,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 12px;
+  padding-left: 52px;
   gap: 16px;
 
   width: 100%;
@@ -78,26 +73,22 @@
   letter-spacing: 0.5px;
 }
 
-.navButtonLeft {
-  width: 40px;
-  height: 40px;
-
-  flex: none;
-  /* order: 0; */
-  flex-grow: 0;
-  border-radius: 100px;
-
-  background-color: #574f62;
-  mix-blend-mode: normal;
+.searchButton {
+  position: absolute;
+  top: 64px;
+  background-color: transparent;
+  border: none;
 }
 
-.navButtonRight {
+.navButtonFirst,
+.navButtonLeft,
+.navButtonRight,
+.navButtonLast {
   width: 40px;
   height: 40px;
-
   flex: none;
-  /* order: 2; */
   flex-grow: 0;
+  border: none;
   border-radius: 100px;
   background-color: #574f62;
   mix-blend-mode: normal;
