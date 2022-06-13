@@ -1,9 +1,15 @@
 import React from "react";
 import "../css/Pokemon.css";
+import { useNavigate } from "react-router-dom";
 const Pokemon = ({ details }) => {
-  const { name, image, types } = details;
+  let navigate = useNavigate();
+  const { id, name, image, types } = details;
+  const goToPokemonDetails = () => {
+    console.log({ id });
+    navigate(`/pokemonDetails/${id}`);
+  };
   return (
-    <div className="pokemonContainer">
+    <button className="pokemonContainer" onClick={goToPokemonDetails}>
       <div className="pokeNameContainer">
         <div className="pokeName">{name}</div>
       </div>
@@ -19,7 +25,7 @@ const Pokemon = ({ details }) => {
           ))}
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

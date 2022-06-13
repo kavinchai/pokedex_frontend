@@ -2,7 +2,6 @@ import React from "react";
 import "../css/SearchBar.css";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
-import { GrPrevious, GrNext } from "react-icons/gr";
 import "typeface-roboto";
 
 const SearchBar = ({
