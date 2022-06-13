@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import "../css/PokemonInfo.css";
-import "../css/Pokemon.css";
-import "typeface-roboto";
 
 function PokemonInfo() {
   const params = useParams(); // Get pokemon id from link
@@ -22,20 +20,8 @@ function PokemonInfo() {
       setPokemonInfo(res);
     });
     console.log(tempvar);
-  });
-  // const {
-  //   id,
-  //   name,
-  //   image,
-  //   types,
-  //   height,
-  //   weight,
-  //   abilities,
-  //   egg_groups,
-  //   stats,
-  //   genus,
-  //   description,
-  // } = pokemonInfo;
+  }, []);
+
   return (
     <div className="pokeInfoContainer">
       {pokemonInfo === null ? (

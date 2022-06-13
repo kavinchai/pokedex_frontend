@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
 import "../css/MainScreen.css";
+import "typeface-roboto";
 
 function App() {
   const [pokePage, setPokePage] = useState(1);
@@ -13,30 +14,38 @@ function App() {
     );
     const json = await response.json();
     console.log(json.data);
-    setPokemonList(json.data);
+    return json.data;
   };
 
-  const [pokemonList, setPokemonList] = useState(() => getPokemonFromApi());
+  const [pokemonList, setPokemonList] = useState(null);
 
   useEffect(() => {
-    getPokemonFromApi();
+    getPokemonFromApi().then((res) => {
+      setPokemonList(res);
+    });
   }, [pokePage]);
 
   return (
     <div className="mainContainer">
-      <SearchBar
-        pokePage={pokePage}
-        setPokePage={setPokePage}
-        pokemonList={pokemonList}
-        setFilteredResults={setFilteredResults}
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-      />
-      <PokemonList
-        pokemonList={pokemonList}
-        searchInput={searchInput}
-        filteredResults={filteredResults}
-      />
+      {pokemonList === null ? (
+        <p>Loading</p>
+      ) : (
+        <>
+          <SearchBar
+            pokePage={pokePage}
+            setPokePage={setPokePage}
+            pokemonList={pokemonList}
+            setFilteredResults={setFilteredResults}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+          />
+          <PokemonList
+            pokemonList={pokemonList}
+            searchInput={searchInput}
+            filteredResults={filteredResults}
+          />
+        </>
+      )}
     </div>
   );
 }
