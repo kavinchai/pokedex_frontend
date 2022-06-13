@@ -16,10 +16,11 @@ function PokemonInfo() {
   };
   const [pokemonInfo, setPokemonInfo] = useState(null);
   useEffect(() => {
-    const tempvar = getPokemonInfoFromApi().then((res) => {
+    const response = getPokemonInfoFromApi().then((res) => {
       setPokemonInfo(res);
     });
-    console.log(tempvar);
+    console.log(response);
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -56,7 +57,32 @@ function PokemonInfo() {
                   ))}
                 </div>
               </div>
-              <div className="pokemonStats"></div>
+              <div className="line"></div>
+              <div className="pokemonStats">
+                <div className="pokePicStat">
+                  <img
+                    src={pokemonInfo.image}
+                    alt={pokemonInfo.name}
+                    className="statsChild Left"
+                  ></img>
+                  <div className="statsChild Right">
+                    <div className="statTextContainer">
+                      {Object.keys(pokemonInfo.stats).map((key) => (
+                        <div key={key} className={"statText"}>
+                          {key}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="statBarContainer">
+                      {Object.keys(pokemonInfo.stats).map((key) => (
+                        <div key={key} className={pokemonInfo.stats[key]}>
+                          {pokemonInfo.stats[key]}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="pokemonDetails"></div>
             </div>
           </div>

@@ -23,6 +23,7 @@ function App() {
     getPokemonFromApi().then((res) => {
       setPokemonList(res);
     });
+    // eslint-disable-next-line
   }, [pokePage]);
 
   return (

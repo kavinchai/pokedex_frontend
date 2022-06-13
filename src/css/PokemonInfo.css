@@ -49,11 +49,12 @@
   flex-direction: column;
 
   position: absolute;
-  width: 800px;
+  width: 55%;
   height: 820px;
 
-  top: 144px;
-  left: 25%;
+  /* top: 144px; */
+  /* left: 25%; */
+  margin: 64px 22.5% auto;
 
   background: #ffffff;
   border-radius: 16px;
@@ -61,7 +62,7 @@
 
 .pokemonCardHeader {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
 }
 
 .pokemonCardName {
@@ -107,4 +108,42 @@
   font-style: normal;
   letter-spacing: 0.5px;
   text-transform: capitalize;
+}
+
+.line {
+  height: 2px;
+  width: 752px;
+  opacity: 0.2;
+  background-color: #555;
+  position: relative;
+  margin: 32px 24px 16px;
+}
+
+.pokePicStat {
+  height: 264px;
+  display: flex;
+  margin: 0px 24px;
+}
+
+/* Right section of pokepicstat */
+.statsChild {
+  background-color: red;
+  flex: 1;
+  display: flex;
+}
+
+/* Left section of pokepic stat */
+.statsChild:first-child {
+  background-color: blue;
+}
+
+.statTextContainer {
+  background-color: yellow;
+}
+
+.statBarContainer {
+  background-color: green;
+}
+.statText {
+  row-gap: 10px;
 }
