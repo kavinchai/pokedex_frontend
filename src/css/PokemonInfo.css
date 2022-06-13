@@ -145,5 +145,14 @@
   background-color: green;
 }
 .statText {
-  row-gap: 10px;
+  margin-right: 24px;
+}
+
+p {
+  margin: 0px 0px 28px 0px;
+  padding: 0px;
+}
+
+.statBar {
+  margin-bottom: 28px;
 }

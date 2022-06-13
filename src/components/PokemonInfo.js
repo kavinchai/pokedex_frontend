@@ -67,15 +67,18 @@ function PokemonInfo() {
                   ></img>
                   <div className="statsChild Right">
                     <div className="statTextContainer">
-                      {Object.keys(pokemonInfo.stats).map((key) => (
-                        <div key={key} className={"statText"}>
-                          {key}
-                        </div>
-                      ))}
+                      <div className="statText">
+                        <p>HP</p>
+                        <p>Attack</p>
+                        <p>Defense</p>
+                        <p>Speed</p>
+                        <p>Sp Atk</p>
+                        <p>Sp Def</p>
+                      </div>
                     </div>
                     <div className="statBarContainer">
                       {Object.keys(pokemonInfo.stats).map((key) => (
-                        <div key={key} className={pokemonInfo.stats[key]}>
+                        <div key={key} className={"statBar"}>
                           {pokemonInfo.stats[key]}
                         </div>
                       ))}
