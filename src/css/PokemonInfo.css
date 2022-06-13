@@ -151,8 +151,16 @@
 p {
   margin: 0px 0px 28px 0px;
   padding: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  color: #181222;
+  letter-spacing: 0.1px;
 }
 
 .statBar {
   margin-bottom: 28px;
 }
+/* .starBarNumber {
+  position: absolute;
+} */
