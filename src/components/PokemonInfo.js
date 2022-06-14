@@ -60,11 +60,14 @@ function PokemonInfo() {
               <div className="line"></div>
               <div className="pokemonStats">
                 <div className="pokePicStat">
-                  <img
-                    src={pokemonInfo.image}
-                    alt={pokemonInfo.name}
-                    className="statsChild Left"
-                  ></img>
+                  <div className="statsChild Left">
+                    <img
+                      src={pokemonInfo.image}
+                      alt={pokemonInfo.name}
+                      className="statsChildImg"
+                    ></img>
+                  </div>
+
                   <div className="statsChild Right">
                     <div className="statTextContainer">
                       <div className="statText">
@@ -77,15 +80,6 @@ function PokemonInfo() {
                       </div>
                     </div>
                     <div className="statBarContainer">
-                      {/* Need ot make individual divs for each stat */}
-                      {/* {Object.keys(pokemonInfo.stats).map((key) => (
-                        <>
-                          <div className="shortBar"></div>
-                          <div key={key} className={`statBar-${key}`}>
-                            {pokemonInfo.stats[key]}
-                          </div>
-                        </>
-                      ))} */}
                       <div className="statHp">
                         <div className="fullBar"></div>
                         <div
