@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import "../css/PokemonInfo.css";
 
 function PokemonInfo() {
   const params = useParams(); // Get pokemon id from link
-
+  let navigate = useNavigate();
+  const goToMainPage = () => {
+    navigate("/");
+  };
   const getPokemonInfoFromApi = async () => {
     const response = await fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${params.pokemonId}`
@@ -31,11 +35,9 @@ function PokemonInfo() {
         <>
           <div className="pokeInfoHeader">
             <button
-              className="navButtonLeft"
+              className="navButtonHome"
               type="submit"
-              onClick={() => {
-                console.log("this works");
-              }}
+              onClick={goToMainPage}
             >
               <FaArrowLeft style={{ color: "#FDF4FF" }} />
             </button>
@@ -160,7 +162,9 @@ function PokemonInfo() {
                   <div className="pokemonGenus">{pokemonInfo.genus}</div>
                   <div className="pokemonDesc">{pokemonInfo.description}</div>
                 </div>
-                <div className="pokemonProfile">test</div>
+                <div className="pokemonProfile">
+                  <p>Profile</p>
+                </div>
               </div>
             </div>
           </div>
