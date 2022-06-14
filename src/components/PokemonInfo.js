@@ -33,7 +33,13 @@ function PokemonInfo() {
         <p>Loading</p>
       ) : (
         <>
-          <div className="pokeInfoHeader">
+          <div
+            className={`pokeInfoHeader ${
+              pokemonInfo.types.length === 2
+                ? pokemonInfo.types[1]
+                : pokemonInfo.types[0]
+            }Color`}
+          >
             <button
               className="navButtonHome"
               type="submit"
@@ -45,7 +51,14 @@ function PokemonInfo() {
               {pokemonInfo.name}
             </div>
           </div>
-          <div className="pokeInfoBody">
+
+          <div
+            className={`pokeInfoBody ${
+              pokemonInfo.types.length === 2
+                ? pokemonInfo.types[1]
+                : pokemonInfo.types[0]
+            }Color`}
+          >
             <div className="pokemonCard">
               <div className="pokemonCardHeader">
                 <div className="pokemonCardName">{pokemonInfo.name}</div>
@@ -53,7 +66,7 @@ function PokemonInfo() {
                 <div className="blankSpace"></div>
                 <div className="pokemonCardTypes">
                   {pokemonInfo.types.map((key) => (
-                    <div key={key} className={key}>
+                    <div key={key} className={`${key}Type`}>
                       {key}
                     </div>
                   ))}
@@ -82,9 +95,19 @@ function PokemonInfo() {
                     </div>
                     <div className="statBarContainer">
                       <div className="statHp">
-                        <div className="fullBar"></div>
                         <div
-                          className={`statBar-hp`}
+                          className={`fullBar ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
+                        ></div>
+                        <div
+                          className={`statBar-hp ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
                           style={{
                             width: `${(pokemonInfo.stats.hp / 250) * 100}%`,
                           }}
@@ -93,9 +116,19 @@ function PokemonInfo() {
                         </div>
                       </div>
                       <div className="statAttack">
-                        <div className="fullBar"></div>
                         <div
-                          className={`statBar-attack`}
+                          className={`fullBar ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
+                        ></div>
+                        <div
+                          className={`statBar-attack ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
                           style={{
                             width: `${(pokemonInfo.stats.attack / 134) * 100}%`,
                           }}
@@ -104,9 +137,19 @@ function PokemonInfo() {
                         </div>
                       </div>
                       <div className="statDefense">
-                        <div className="fullBar"></div>
                         <div
-                          className={`statBar-defense`}
+                          className={`fullBar ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
+                        ></div>
+                        <div
+                          className={`statBar-defense ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
                           style={{
                             width: `${
                               (pokemonInfo.stats.defense / 180) * 100
@@ -117,9 +160,19 @@ function PokemonInfo() {
                         </div>
                       </div>
                       <div className="statSpeed">
-                        <div className="fullBar"></div>
                         <div
-                          className={`statBar-speed`}
+                          className={`fullBar ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
+                        ></div>
+                        <div
+                          className={`statBar-speed ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
                           style={{
                             width: `${(pokemonInfo.stats.speed / 140) * 100}%`,
                           }}
@@ -128,9 +181,19 @@ function PokemonInfo() {
                         </div>
                       </div>
                       <div className="statSpAtk">
-                        <div className="fullBar"></div>
                         <div
-                          className={`statBar-special-attack`}
+                          className={`fullBar ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
+                        ></div>
+                        <div
+                          className={`statBar-special-attack ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
                           style={{
                             width: `${
                               (pokemonInfo.stats["special-attack"] / 135) * 100
@@ -141,9 +204,19 @@ function PokemonInfo() {
                         </div>
                       </div>
                       <div className="statSpDef">
-                        <div className="fullBar"></div>
                         <div
-                          className={`statBar-special-defense`}
+                          className={`fullBar ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
+                        ></div>
+                        <div
+                          className={`statBar-special-defense ${
+                            pokemonInfo.types.length === 2
+                              ? pokemonInfo.types[1]
+                              : pokemonInfo.types[0]
+                          }Color`}
                           style={{
                             width: `${
                               (pokemonInfo.stats["special-defense"] / 230) * 100
@@ -162,7 +235,13 @@ function PokemonInfo() {
                   <div className="pokemonGenus">{pokemonInfo.genus}</div>
                   <div className="pokemonDesc">{pokemonInfo.description}</div>
                 </div>
-                <div className="pokemonProfile">
+                <div
+                  className={`pokemonProfile ${
+                    pokemonInfo.types.length === 2
+                      ? pokemonInfo.types[1]
+                      : pokemonInfo.types[0]
+                  }Color`}
+                >
                   <p>Profile</p>
                 </div>
               </div>

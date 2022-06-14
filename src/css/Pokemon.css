@@ -76,7 +76,7 @@
   text-transform: capitalize;
 }
 
-.normal {
+.normalType {
   color: #a8a878;
   background: rgba(168, 168, 120, 0.25);
   border: 1px solid #a8a878;
@@ -84,7 +84,7 @@
   padding: 4px 8px;
 }
 
-.fire {
+.fireType {
   color: #f08030;
   background: rgba(240, 128, 48, 0.25);
   border: 1px solid #f08030;
@@ -92,7 +92,7 @@
   padding: 4px 8px;
 }
 
-.water {
+.waterType {
   color: #6890f0;
   background: rgba(104, 144, 240, 0.25);
   border: 1px solid #6890f0;
@@ -100,7 +100,7 @@
   padding: 4px 8px;
 }
 
-.grass {
+.grassType {
   color: #78c850;
   background: rgba(120, 200, 80, 0.25);
   border: 1px solid #78c850;
@@ -108,7 +108,7 @@
   padding: 4px 8px;
 }
 
-.electric {
+.electricType {
   color: #f8d030;
   background: rgba(248, 208, 48, 0.25);
   border: 1px solid #f8d030;
@@ -116,7 +116,7 @@
   padding: 4px 8px;
 }
 
-.ice {
+.iceType {
   color: #98d8d8;
   background: rgba(152, 216, 216, 0.25);
   border: 1px solid #98d8d8;
@@ -124,7 +124,7 @@
   padding: 4px 8px;
 }
 
-.fighting {
+.fightingType {
   color: #c03028;
   background: rgba(192, 48, 40, 0.25);
   border: 1px solid #c03028;
@@ -132,7 +132,7 @@
   padding: 4px 8px;
 }
 
-.poison {
+.poisonType {
   color: #a040aa;
   background: rgba(160, 64, 170, 0.25);
   border: 1px solid #a040aa;
@@ -140,14 +140,15 @@
   padding: 4px 8px;
 }
 
-.ground {
+.groundType {
   color: #e0c068;
   background: rgba(224, 192, 104, 0.25);
   border: 1px solid #e0c068;
   border-radius: 4px;
   padding: 4px 8px;
 }
-.flying {
+
+.flyingType {
   color: #a890f0;
   background: rgba(168, 144, 240, 0.25);
   border: 1px solid #a890f0;
@@ -155,7 +156,7 @@
   padding: 4px 8px;
 }
 
-.psychic {
+.psychicType {
   color: #f85888;
   background: rgba(248, 88, 136, 0.25);
   border: 1px solid #f85888;
@@ -163,7 +164,7 @@
   padding: 4px 8px;
 }
 
-.bug {
+.bugType {
   color: #a8b820;
   background: rgba(168, 184, 32, 0.25);
   border: 1px solid #a8b820;
@@ -171,7 +172,7 @@
   padding: 4px 8px;
 }
 
-.rock {
+.rockType {
   color: #b8a038;
   background: rgba(184, 160, 56, 0.25);
   border: 1px solid #b8a038;
@@ -179,7 +180,7 @@
   padding: 4px 8px;
 }
 
-.ghost {
+.ghostType {
   color: #705898;
   background: rgba(112, 88, 152, 0.25);
   border: 1px solid #705898;
@@ -187,7 +188,7 @@
   padding: 4px 8px;
 }
 
-.dark {
+.darkType {
   color: #705848;
   background: rgba(112, 88, 72, 0.25);
   border: 1px solid #705848;
@@ -195,7 +196,7 @@
   padding: 4px 8px;
 }
 
-.dragon {
+.dragonType {
   color: #7038f8;
   background: rgba(112, 56, 248, 0.25);
   border: 1px solid #7038f8;
@@ -203,7 +204,7 @@
   padding: 4px 8px;
 }
 
-.steel {
+.steelType {
   color: #b8b8d0;
   background: rgba(184, 184, 208, 0.25);
   border: 1px solid #b8b8d0;
@@ -211,7 +212,7 @@
   padding: 4px 8px;
 }
 
-.fairy {
+.fairyType {
   color: #ee99ac;
   background: rgba(238, 153, 172, 0.25);
   border: 1px solid #ee99ac;

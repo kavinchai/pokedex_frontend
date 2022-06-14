@@ -1,5 +1,4 @@
 .pokeInfoHeader {
-  background-color: blue;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,6 +8,7 @@
   height: auto;
   width: auto;
 }
+
 .pokemonNameHeader {
   width: 85%;
   position: relative;
@@ -24,7 +24,7 @@
   font-size: 32px;
   line-height: 40px;
   margin: auto;
-  background-color: red;
+  /* background-color: red; */
 }
 .navButtonHome {
   position: absolute;
@@ -40,7 +40,6 @@
 }
 
 .pokeInfoBody {
-  background-color: green;
   height: 100vh;
 }
 
@@ -153,7 +152,7 @@
   margin-right: auto;
 }
 .statBarContainer {
-  background-color: green;
+  /* background-color: green; */
   width: 100%;
   position: relative;
 }
@@ -182,7 +181,7 @@
   margin-bottom: 24px;
   color: white;
   /* background-color: rgba(12, 12, 12, 0.24); */
-  background-color: red;
+  /* background-color: red; */
   position: relative;
   height: 24px;
 }
@@ -190,20 +189,19 @@
 .fullBar {
   width: 100%;
   height: 24px;
-  background-color: aqua;
   position: absolute;
   opacity: 0.24;
 }
 
 .pokemonDetails {
-  background-color: pink;
+  /* background-color: pink; */
   margin: 16px 24px 38px;
   height: 378px;
 }
 
 .genusDescContainer {
   width: 100%;
-  background-color: yellow;
+
   height: auto;
   margin-bottom: 24px;
   position: relative;
@@ -241,7 +239,7 @@
 .pokemonProfile {
   width: auto;
   height: 40px;
-  background-color: red;
+
   position: relative;
 }
 
@@ -255,4 +253,76 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+}
+
+.normalColor {
+  background-color: #a8a878;
+}
+
+.fireColor {
+  background-color: #f08030;
+}
+
+.waterColor {
+  background-color: #6890f0;
+}
+
+.grassColor {
+  background-color: #78c850;
+}
+
+.electricColor {
+  background-color: #f8d030;
+}
+
+.iceColor {
+  background-color: #98d8d8;
+}
+
+.fightingColor {
+  background-color: #c03028;
+}
+
+.poisonColor {
+  background-color: #a040aa;
+}
+
+.groundColor {
+  background-color: #e0c068;
+}
+
+.flyingColor {
+  background-color: #a890f0;
+}
+
+.psychicColor {
+  background-color: #f85888;
+}
+
+.bugColor {
+  background-color: #a8b820;
+}
+
+.rockColor {
+  background-color: #b8a038;
+}
+
+.ghostColor {
+  background-color: #705898;
+}
+
+.darkColor {
+  background-color: #705848;
+}
+
+.dragonColor {
+  background-color: #7038f8;
+}
+
+.steelColor {
+  background-color: #b8b8d0;
+}
+
+.fairyColor {
+  background-color: #ee99ac;
 }
