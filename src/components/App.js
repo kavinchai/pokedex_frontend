@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
+import LoadingPage from "./LoadingPage";
 import "../css/MainScreen.css";
 import "typeface-roboto";
 
@@ -29,7 +30,7 @@ function App() {
   return (
     <div className="mainContainer">
       {pokemonList === null ? (
-        <p>Loading</p>
+        <LoadingPage />
       ) : (
         <>
           <SearchBar

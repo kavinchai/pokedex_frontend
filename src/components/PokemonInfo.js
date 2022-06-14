@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
 import "../css/PokemonInfo.css";
 
 function PokemonInfo() {
@@ -30,7 +31,7 @@ function PokemonInfo() {
   return (
     <div className="pokeInfoContainer">
       {pokemonInfo === null ? (
-        <p>Loading</p>
+        <LoadingPage />
       ) : (
         <>
           <div

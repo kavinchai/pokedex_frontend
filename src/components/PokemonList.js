@@ -1,6 +1,6 @@
 import React from "react";
-import "../css/PokemonList.css";
 import PokemonCard from "./PokemonCard";
+import "../css/PokemonList.css";
 
 const PokemonList = ({ pokemonList, searchInput, filteredResults }) => {
   return (

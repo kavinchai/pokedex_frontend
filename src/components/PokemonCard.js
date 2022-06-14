@@ -1,6 +1,7 @@
 import React from "react";
-import "../css/Pokemon.css";
 import { useNavigate } from "react-router-dom";
+import "../css/Pokemon.css";
+
 const PokemonCard = ({ details }) => {
   let navigate = useNavigate();
   const { id, name, image, types } = details;

@@ -1,0 +1,52 @@
+.loadingPageContainer {
+  background-color: #ebbff5;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.loadingHeader {
+  margin-top: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+.dotProp {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: blue;
+  display: inline-block;
+  margin: 4rem;
+  animation: scaling 2.5s ease-in-out infinite;
+}
+
+@keyframes scaling {
+  0%,
+  100% {
+    transform: scale(0.2);
+    background-color: #30ffb7;
+  }
+  40% {
+    transform: scale(1);
+    background-color: #07deff;
+  }
+  50% {
+    transform: scale(1);
+    background-color: #0761ff;
+  }
+}
+
+.loadingBody {
+  width: auto;
+  height: 40%;
+  display: flex;
+}
+
+.pokeballProp {
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

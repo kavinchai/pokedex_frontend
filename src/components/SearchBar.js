@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/SearchBar.css";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
+import "../css/SearchBar.css";
 
 const SearchBar = ({
   pokePage,
