@@ -19,7 +19,7 @@ const Pokemon = ({ details }) => {
       <div className="pokeTypeContainer">
         <div className="pokemonTypes">
           {types.map((key) => (
-            <div key={key} className={`${key}Type`}>
+            <div key={key} className={`${key}Type typeContainer`}>
               {key}
             </div>
           ))}

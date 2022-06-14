@@ -76,146 +76,115 @@
   text-transform: capitalize;
 }
 
+.typeContainer {
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
 .normalType {
   color: #a8a878;
   background: rgba(168, 168, 120, 0.25);
   border: 1px solid #a8a878;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .fireType {
   color: #f08030;
   background: rgba(240, 128, 48, 0.25);
   border: 1px solid #f08030;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .waterType {
   color: #6890f0;
   background: rgba(104, 144, 240, 0.25);
   border: 1px solid #6890f0;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .grassType {
   color: #78c850;
   background: rgba(120, 200, 80, 0.25);
   border: 1px solid #78c850;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .electricType {
   color: #f8d030;
   background: rgba(248, 208, 48, 0.25);
   border: 1px solid #f8d030;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .iceType {
   color: #98d8d8;
   background: rgba(152, 216, 216, 0.25);
   border: 1px solid #98d8d8;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .fightingType {
   color: #c03028;
   background: rgba(192, 48, 40, 0.25);
   border: 1px solid #c03028;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .poisonType {
   color: #a040aa;
   background: rgba(160, 64, 170, 0.25);
   border: 1px solid #a040aa;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .groundType {
   color: #e0c068;
   background: rgba(224, 192, 104, 0.25);
   border: 1px solid #e0c068;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .flyingType {
   color: #a890f0;
   background: rgba(168, 144, 240, 0.25);
   border: 1px solid #a890f0;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .psychicType {
   color: #f85888;
   background: rgba(248, 88, 136, 0.25);
   border: 1px solid #f85888;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .bugType {
   color: #a8b820;
   background: rgba(168, 184, 32, 0.25);
   border: 1px solid #a8b820;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .rockType {
   color: #b8a038;
   background: rgba(184, 160, 56, 0.25);
   border: 1px solid #b8a038;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .ghostType {
   color: #705898;
   background: rgba(112, 88, 152, 0.25);
   border: 1px solid #705898;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .darkType {
   color: #705848;
   background: rgba(112, 88, 72, 0.25);
   border: 1px solid #705848;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .dragonType {
   color: #7038f8;
   background: rgba(112, 56, 248, 0.25);
   border: 1px solid #7038f8;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .steelType {
   color: #b8b8d0;
   background: rgba(184, 184, 208, 0.25);
   border: 1px solid #b8b8d0;
-  border-radius: 4px;
-  padding: 4px 8px;
 }
 
 .fairyType {
   color: #ee99ac;
   background: rgba(238, 153, 172, 0.25);
   border: 1px solid #ee99ac;
-  border-radius: 4px;
-  padding: 4px 8px;
 }

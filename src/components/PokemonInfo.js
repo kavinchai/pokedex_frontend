@@ -38,7 +38,7 @@ function PokemonInfo() {
               pokemonInfo.types.length === 2
                 ? pokemonInfo.types[1]
                 : pokemonInfo.types[0]
-            }Color`}
+            }BgColor`}
           >
             <button
               className="navButtonHome"
@@ -57,7 +57,7 @@ function PokemonInfo() {
               pokemonInfo.types.length === 2
                 ? pokemonInfo.types[1]
                 : pokemonInfo.types[0]
-            }Color`}
+            }BgColor`}
           >
             <div className="pokemonCard">
               <div className="pokemonCardHeader">
@@ -66,7 +66,7 @@ function PokemonInfo() {
                 <div className="blankSpace"></div>
                 <div className="pokemonCardTypes">
                   {pokemonInfo.types.map((key) => (
-                    <div key={key} className={`${key}Type`}>
+                    <div key={key} className={`${key}Type typeContainer`}>
                       {key}
                     </div>
                   ))}
@@ -100,14 +100,14 @@ function PokemonInfo() {
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                         ></div>
                         <div
                           className={`statBar-hp ${
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                           style={{
                             width: `${(pokemonInfo.stats.hp / 250) * 100}%`,
                           }}
@@ -121,14 +121,14 @@ function PokemonInfo() {
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                         ></div>
                         <div
                           className={`statBar-attack ${
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                           style={{
                             width: `${(pokemonInfo.stats.attack / 134) * 100}%`,
                           }}
@@ -142,14 +142,14 @@ function PokemonInfo() {
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                         ></div>
                         <div
                           className={`statBar-defense ${
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                           style={{
                             width: `${
                               (pokemonInfo.stats.defense / 180) * 100
@@ -165,14 +165,14 @@ function PokemonInfo() {
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                         ></div>
                         <div
                           className={`statBar-speed ${
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                           style={{
                             width: `${(pokemonInfo.stats.speed / 140) * 100}%`,
                           }}
@@ -186,14 +186,14 @@ function PokemonInfo() {
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                         ></div>
                         <div
                           className={`statBar-special-attack ${
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                           style={{
                             width: `${
                               (pokemonInfo.stats["special-attack"] / 135) * 100
@@ -209,14 +209,14 @@ function PokemonInfo() {
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                         ></div>
                         <div
                           className={`statBar-special-defense ${
                             pokemonInfo.types.length === 2
                               ? pokemonInfo.types[1]
                               : pokemonInfo.types[0]
-                          }Color`}
+                          }BgColor`}
                           style={{
                             width: `${
                               (pokemonInfo.stats["special-defense"] / 230) * 100
@@ -240,7 +240,7 @@ function PokemonInfo() {
                     pokemonInfo.types.length === 2
                       ? pokemonInfo.types[1]
                       : pokemonInfo.types[0]
-                  }Color`}
+                  }BgColor`}
                 >
                   <p>Profile</p>
                 </div>
