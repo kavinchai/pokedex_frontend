@@ -194,3 +194,54 @@ p {
   position: absolute;
   opacity: 0.24;
 }
+
+.pokemonDetails {
+  background-color: pink;
+  margin: 16px 24px 38px;
+  height: 378px;
+}
+
+.genusDescContainer {
+  width: 100%;
+  background-color: yellow;
+  height: 56px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.pokemonGenus {
+  width: auto;
+  /* background-color: red; */
+  margin: 0px 16px 8px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+
+  color: #181222;
+}
+
+.pokemonDesc {
+  width: auto;
+  /* background-color: blue; */
+  margin: 0px 16px 0px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  letter-spacing: 0.5px;
+}
+
+.pokemonProfile {
+  width: auto;
+  height: 40px;
+  background-color: red;
+
+  position: relative;
+}

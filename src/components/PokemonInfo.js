@@ -67,7 +67,6 @@ function PokemonInfo() {
                       className="statsChildImg"
                     ></img>
                   </div>
-
                   <div className="statsChild Right">
                     <div className="statTextContainer">
                       <div className="statText">
@@ -156,7 +155,13 @@ function PokemonInfo() {
                   </div>
                 </div>
               </div>
-              <div className="pokemonDetails"></div>
+              <div className="pokemonDetails">
+                <div className="genusDescContainer">
+                  <div className="pokemonGenus">{pokemonInfo.genus}</div>
+                  <div className="pokemonDesc">{pokemonInfo.description}</div>
+                </div>
+                <div className="pokemonProfile">test</div>
+              </div>
             </div>
           </div>
         </>
