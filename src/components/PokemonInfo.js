@@ -77,10 +77,14 @@ function PokemonInfo() {
                       </div>
                     </div>
                     <div className="statBarContainer">
+                      {/* Need ot make individual divs for each stat */}
                       {Object.keys(pokemonInfo.stats).map((key) => (
-                        <div key={key} className={"statBar"}>
-                          {pokemonInfo.stats[key]}
-                        </div>
+                        <>
+                          <div className="shortBar"></div>
+                          <div key={key} className={`statBar-${key}`}>
+                            {pokemonInfo.stats[key]}
+                          </div>
+                        </>
                       ))}
                     </div>
                   </div>
