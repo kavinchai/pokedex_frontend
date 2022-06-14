@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/PokemonList.css";
-import Pokemon from "./Pokemon";
+import PokemonCard from "./PokemonCard";
 
 const PokemonList = ({ pokemonList, searchInput, filteredResults }) => {
   return (
@@ -8,10 +8,14 @@ const PokemonList = ({ pokemonList, searchInput, filteredResults }) => {
       <div className="pokemonData">
         {searchInput.length > 0
           ? Object.keys(filteredResults).map((key) => (
-              <Pokemon key={key} index={key} details={filteredResults[key]} />
+              <PokemonCard
+                key={key}
+                index={key}
+                details={filteredResults[key]}
+              />
             ))
           : Object.keys(pokemonList).map((key) => (
-              <Pokemon key={key} index={key} details={pokemonList[key]} />
+              <PokemonCard key={key} index={key} details={pokemonList[key]} />
             ))}
       </div>
     </div>

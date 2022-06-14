@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Pokemon.css";
 import { useNavigate } from "react-router-dom";
-const Pokemon = ({ details }) => {
+const PokemonCard = ({ details }) => {
   let navigate = useNavigate();
   const { id, name, image, types } = details;
   const goToPokemonInfo = () => {
@@ -29,4 +29,4 @@ const Pokemon = ({ details }) => {
   );
 };
 
-export default Pokemon;
+export default PokemonCard;

@@ -239,8 +239,8 @@
 .pokemonProfile {
   width: auto;
   height: 40px;
-
   position: relative;
+  margin-bottom: 25px;
 }
 
 .pokemonProfile p {
@@ -253,6 +253,52 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+}
+
+.pokemonAltStatsContainer {
+  width: auto;
+  height: auto;
+  position: relative;
+  display: flex;
+}
+.pokemonAltStatsContainer p {
+  margin: 0px 16px 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  /* background-color: yellow; */
+}
+
+.statDiv {
+  margin-bottom: 20px;
+}
+
+.leftNumColStat {
+  width: 30.7%;
+}
+
+.rightNumColStat {
+  width: 30.7%;
+  text-transform: capitalize;
+}
+
+.leftTextColStat {
+  width: 12.7%;
+  margin-right: 16px;
+}
+
+.rightTextColStat {
+  width: 15%;
+  margin-right: 16px;
+}
+
+.abilityBox {
+  width: 100%;
+  height: 48px;
+  display: flex;
+}
+.abilityName {
 }
 
 .normalBgColor {

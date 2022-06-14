@@ -244,6 +244,30 @@ function PokemonInfo() {
                 >
                   <p>Profile</p>
                 </div>
+                <div className="pokemonAltStatsContainer">
+                  <div className="leftTextColStat">
+                    <p>Height:</p>
+                    <p>Weight:</p>
+                  </div>
+                  <div className="leftNumColStat">
+                    <div className="statDiv">{`${pokemonInfo.height} m`}</div>
+                    <div className="statDiv">{`${pokemonInfo.weight} kg`}</div>
+                  </div>
+                  <div className="rightTextColStat">
+                    <p>Egg Groups:</p>
+                    <p>Abilities:</p>
+                  </div>
+                  <div className="rightNumColStat">
+                    <div className="statDiv">{pokemonInfo["egg_groups"]}</div>
+                    <div className="statDiv abilityBox">
+                      {pokemonInfo.abilities.map((key) => (
+                        <div key={key} className="abilityName">
+                          {key === pokemonInfo.abilities[0] ? key : `, ${key}`}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
