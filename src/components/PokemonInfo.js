@@ -78,14 +78,86 @@ function PokemonInfo() {
                     </div>
                     <div className="statBarContainer">
                       {/* Need ot make individual divs for each stat */}
-                      {Object.keys(pokemonInfo.stats).map((key) => (
+                      {/* {Object.keys(pokemonInfo.stats).map((key) => (
                         <>
                           <div className="shortBar"></div>
                           <div key={key} className={`statBar-${key}`}>
                             {pokemonInfo.stats[key]}
                           </div>
                         </>
-                      ))}
+                      ))} */}
+                      <div className="statHp">
+                        <div className="fullBar"></div>
+                        <div
+                          className={`statBar-hp`}
+                          style={{
+                            width: `${(pokemonInfo.stats.hp / 250) * 100}%`,
+                          }}
+                        >
+                          {pokemonInfo.stats.hp}
+                        </div>
+                      </div>
+                      <div className="statAttack">
+                        <div className="fullBar"></div>
+                        <div
+                          className={`statBar-attack`}
+                          style={{
+                            width: `${(pokemonInfo.stats.attack / 134) * 100}%`,
+                          }}
+                        >
+                          {pokemonInfo.stats.attack}
+                        </div>
+                      </div>
+                      <div className="statDefense">
+                        <div className="fullBar"></div>
+                        <div
+                          className={`statBar-defense`}
+                          style={{
+                            width: `${
+                              (pokemonInfo.stats.defense / 180) * 100
+                            }%`,
+                          }}
+                        >
+                          {pokemonInfo.stats.defense}
+                        </div>
+                      </div>
+                      <div className="statSpeed">
+                        <div className="fullBar"></div>
+                        <div
+                          className={`statBar-speed`}
+                          style={{
+                            width: `${(pokemonInfo.stats.speed / 140) * 100}%`,
+                          }}
+                        >
+                          {pokemonInfo.stats.speed}
+                        </div>
+                      </div>
+                      <div className="statSpAtk">
+                        <div className="fullBar"></div>
+                        <div
+                          className={`statBar-special-attack`}
+                          style={{
+                            width: `${
+                              (pokemonInfo.stats["special-attack"] / 135) * 100
+                            }%`,
+                          }}
+                        >
+                          {pokemonInfo.stats["special-attack"]}
+                        </div>
+                      </div>
+                      <div className="statSpDef">
+                        <div className="fullBar"></div>
+                        <div
+                          className={`statBar-special-defense`}
+                          style={{
+                            width: `${
+                              (pokemonInfo.stats["special-defense"] / 230) * 100
+                            }%`,
+                          }}
+                        >
+                          {pokemonInfo.stats["special-defense"]}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
