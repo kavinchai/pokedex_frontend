@@ -1,7 +1,9 @@
 import React from "react";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
+import { useMemo, useEffect } from "react";
 import "../css/SearchBar.css";
+import { debounce } from "lodash";
 
 const SearchBar = ({
   pokePage,
@@ -11,14 +13,19 @@ const SearchBar = ({
   searchInput,
   setSearchInput,
 }) => {
+  // function debounce(func, duration) {
+  //   let timeout;
+  //   return function (...args) {
+  //     const effect = () => {
+  //       timeout = null;
+  //       return func.apply(this, args);
+  //     };
+  //     clearTimeout(timeout);
+  //     timeout = setTimeout(effect, duration);
+  //   };
+  // }
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
-    // const filteredData = pokemonList.filter((item) => {
-    //   return Object.values(item.name)
-    //     .join("")
-    //     .toLowerCase()
-    //     .includes(searchValue.toLowerCase());
-    // });
     const filteredData = async () => {
       const response = await fetch(
         `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}`
@@ -30,6 +37,17 @@ const SearchBar = ({
       setFilteredResults(res);
     });
   };
+
+  const debouncedSearch = useMemo(() => {
+    return debounce((e) => {
+      searchItems(e.target.value);
+    }, 300);
+  }, []);
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  });
   return (
     <div className="pokemon-selector">
       <button
@@ -58,8 +76,8 @@ const SearchBar = ({
         <input
           className="pokemon-searchBar"
           type="text"
-          value={searchInput}
-          onChange={(e) => searchItems(e.target.value)}
+          // value={searchInput}
+          onChange={debouncedSearch}
           placeholder="Search"
         />
       </div>
