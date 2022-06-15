@@ -1,2 +1,4 @@
-.mainContainer {
+.appContainer {
+  height: 100vh;
+  background: #fdf4ff;
 }

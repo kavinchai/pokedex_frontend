@@ -7,7 +7,7 @@ function Router() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<LoadingPage />} />
+        <Route path="/" element={<App />} />
         <Route path="/pokemonInfo/:pokemonId" element={<PokemonInfo />} />
       </Routes>
     </>

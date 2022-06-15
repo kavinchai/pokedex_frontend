@@ -32,7 +32,7 @@ function App() {
       {pokemonList === null ? (
         <LoadingPage />
       ) : (
-        <>
+        <div className="appContainer">
           <SearchBar
             pokePage={pokePage}
             setPokePage={setPokePage}
@@ -42,11 +42,12 @@ function App() {
             setSearchInput={setSearchInput}
           />
           <PokemonList
+            setPokePage={setPokePage}
             pokemonList={pokemonList}
             searchInput={searchInput}
             filteredResults={filteredResults}
           />
-        </>
+        </div>
       )}
     </div>
   );

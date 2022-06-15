@@ -1,3 +1,8 @@
+.pokeInfoContainer {
+  /* height: 100vh;
+  background-color: red; */
+}
+
 .pokeInfoHeader {
   display: flex;
   flex-direction: row;
@@ -295,8 +300,6 @@
   width: 100%;
   height: 48px;
   display: flex;
-}
-.abilityName {
 }
 
 .normalBgColor {

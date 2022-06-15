@@ -5,10 +5,13 @@ import { useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import "../css/PokemonInfo.css";
 
-function PokemonInfo() {
+const PokemonInfo = ({ setPokePage }) => {
   const params = useParams(); // Get pokemon id from link
   let navigate = useNavigate();
   const goToMainPage = () => {
+    const response = getPokemonInfoFromApi().then((res) => {
+      setPokePage(res.id);
+    });
     navigate("/");
   };
   const getPokemonInfoFromApi = async () => {
@@ -29,11 +32,11 @@ function PokemonInfo() {
   }, []);
 
   return (
-    <div className="pokeInfoContainer">
+    <div>
       {pokemonInfo === null ? (
         <LoadingPage />
       ) : (
-        <>
+        <div className="pokeInfoContainer">
           <div
             className={`pokeInfoHeader ${
               pokemonInfo.types.length === 2
@@ -272,10 +275,10 @@ function PokemonInfo() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
-}
+};
 
 export default PokemonInfo;
