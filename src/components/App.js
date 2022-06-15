@@ -9,12 +9,13 @@ function App() {
   const [pokePage, setPokePage] = useState(1);
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
+
   const getPokemonFromApi = async () => {
     const response = await fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokePage}`
     );
     const json = await response.json();
-    console.log(json.data);
+    // console.log(json.data);
     return json.data;
   };
 
@@ -42,7 +43,7 @@ function App() {
             setSearchInput={setSearchInput}
           />
           <PokemonList
-            setPokePage={setPokePage}
+            pokePage={pokePage}
             pokemonList={pokemonList}
             searchInput={searchInput}
             filteredResults={filteredResults}

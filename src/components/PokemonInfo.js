@@ -3,14 +3,12 @@ import { useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import CreateStat from "./CreateStat";
 import "../css/PokemonInfo.css";
 
-const PokemonInfo = ({ setPokePage }) => {
+const PokemonInfo = ({ pokePage }) => {
   const params = useParams(); // Get pokemon id from link
   let navigate = useNavigate();
-  const goToMainPage = () => {
-    navigate("/");
-  };
   const getPokemonInfoFromApi = async () => {
     const response = await fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${params.pokemonId}`
@@ -31,6 +29,7 @@ const PokemonInfo = ({ setPokePage }) => {
   const pokeTypeBgColor = (e) => {
     return e.length === 2 ? e[1] : e[0];
   };
+
   return (
     <div>
       {pokemonInfo === null ? (
@@ -45,7 +44,7 @@ const PokemonInfo = ({ setPokePage }) => {
             <button
               className="navButtonHome"
               type="submit"
-              onClick={goToMainPage}
+              onClick={() => navigate(-1)}
             >
               <FaArrowLeft style={{ color: "#FDF4FF" }} />
             </button>
@@ -94,116 +93,30 @@ const PokemonInfo = ({ setPokePage }) => {
                       </div>
                     </div>
                     <div className="statBarContainer">
-                      <div className="statHp">
-                        <div
-                          className={`fullBar ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                        ></div>
-                        <div
-                          className={`statBar-hp ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
-                          style={{
-                            width: `${(pokemonInfo.stats.hp / 250) * 100}%`,
-                          }}
-                        >
-                          {pokemonInfo.stats.hp}
-                        </div>
-                      </div>
-                      <div className="statAttack">
-                        <div
-                          className={`fullBar ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                        ></div>
-                        <div
-                          className={`statBar-attack ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                          style={{
-                            width: `${(pokemonInfo.stats.attack / 160) * 100}%`,
-                          }}
-                        >
-                          {pokemonInfo.stats.attack}
-                        </div>
-                      </div>
-                      <div className="statDefense">
-                        <div
-                          className={`fullBar ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                        ></div>
-                        <div
-                          className={`statBar-defense ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                          style={{
-                            width: `${
-                              (pokemonInfo.stats.defense / 180) * 100
-                            }%`,
-                          }}
-                        >
-                          {pokemonInfo.stats.defense}
-                        </div>
-                      </div>
-                      <div className="statSpeed">
-                        <div
-                          className={`fullBar ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                        ></div>
-                        <div
-                          className={`statBar-speed ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                          style={{
-                            width: `${(pokemonInfo.stats.speed / 140) * 100}%`,
-                          }}
-                        >
-                          {pokemonInfo.stats.speed}
-                        </div>
-                      </div>
-                      <div className="statSpAtk">
-                        <div
-                          className={`fullBar ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                        ></div>
-                        <div
-                          className={`statBar-special-attack ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                          style={{
-                            width: `${
-                              (pokemonInfo.stats["special-attack"] / 154) * 100
-                            }%`,
-                          }}
-                        >
-                          {pokemonInfo.stats["special-attack"]}
-                        </div>
-                      </div>
-                      <div className="statSpDef">
-                        <div
-                          className={`fullBar ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                        ></div>
-                        <div
-                          className={`statBar-special-defense ${pokeTypeBgColor(
-                            pokemonInfo.types
-                          )}BgColor`}
-                          style={{
-                            width: `${
-                              (pokemonInfo.stats["special-defense"] / 230) * 100
-                            }%`,
-                          }}
-                        >
-                          {pokemonInfo.stats["special-defense"]}
-                        </div>
-                      </div>
+                      <CreateStat
+                        pokemonInfo={pokemonInfo}
+                        specificStat={"hp"}
+                      />
+                      <CreateStat
+                        pokemonInfo={pokemonInfo}
+                        specificStat={"attack"}
+                      />
+                      <CreateStat
+                        pokemonInfo={pokemonInfo}
+                        specificStat={"defense"}
+                      />
+                      <CreateStat
+                        pokemonInfo={pokemonInfo}
+                        specificStat={"speed"}
+                      />
+                      <CreateStat
+                        pokemonInfo={pokemonInfo}
+                        specificStat={"special-attack"}
+                      />
+                      <CreateStat
+                        pokemonInfo={pokemonInfo}
+                        specificStat={"special-defense"}
+                      />
                     </div>
                   </div>
                 </div>
@@ -259,3 +172,4 @@ const PokemonInfo = ({ setPokePage }) => {
 };
 
 export default PokemonInfo;
+//https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=p&page=2

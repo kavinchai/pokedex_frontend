@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Pokemon.css";
 
-const PokemonCard = ({ details }) => {
+const PokemonCard = ({ pokePage, details }) => {
   let navigate = useNavigate();
   const { id, name, image, types } = details;
   const goToPokemonInfo = () => {
     console.log({ id });
-    navigate(`/pokemonInfo/${id}`);
+    navigate(`/pokemonInfo/${id}`, pokePage);
   };
   return (
     <button className="pokemonContainer" onClick={goToPokemonInfo}>

@@ -1,6 +1,6 @@
 .pokeInfoContainer {
-  /* height: 100vh;
-  background-color: red; */
+  /* height: 100vh; */
+  /* background-color: red; */
 }
 
 .pokeInfoHeader {
@@ -161,40 +161,6 @@
   width: 100%;
   position: relative;
 }
-.statText {
-  margin-right: 24px;
-}
-
-.statText p {
-  margin: 0px 0px 29px 0px;
-  padding: 0px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 500;
-  color: #181222;
-  letter-spacing: 0.1px;
-}
-
-/*RGBA (a, b, c, opacity)*/
-.statBar-hp,
-.statBar-speed,
-.statBar-attack,
-.statBar-defense,
-.statBar-special-attack,
-.statBar-special-defense {
-  margin-bottom: 24px;
-  color: white;
-  position: relative;
-  height: 24px;
-}
-
-.fullBar {
-  width: 100%;
-  height: 24px;
-  position: absolute;
-  opacity: 0.24;
-}
 
 .pokemonDetails {
   /* background-color: pink; */
@@ -221,7 +187,6 @@
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.1px;
-
   color: #181222;
 }
 

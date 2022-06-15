@@ -1,0 +1,105 @@
+.statText {
+  margin-right: 24px;
+}
+
+.statText p {
+  margin: 0px 0px 29px 0px;
+  padding: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  color: #181222;
+  letter-spacing: 0.1px;
+}
+
+.statBar-hp,
+.statBar-speed,
+.statBar-attack,
+.statBar-defense,
+.statBar-special-attack,
+.statBar-special-defense {
+  margin-bottom: 24px;
+  color: white;
+  position: relative;
+  height: 24px;
+}
+
+.fullBar {
+  width: 100%;
+  height: 24px;
+  position: absolute;
+  opacity: 0.24;
+}
+
+.normalBgColor {
+  background-color: #a8a878;
+}
+
+.fireBgColor {
+  background-color: #f08030;
+}
+
+.waterBgColor {
+  background-color: #6890f0;
+}
+
+.grassBgColor {
+  background-color: #78c850;
+}
+
+.electricBgColor {
+  background-color: #f8d030;
+}
+
+.iceBgColor {
+  background-color: #98d8d8;
+}
+
+.fightingBgColor {
+  background-color: #c03028;
+}
+
+.poisonBgColor {
+  background-color: #a040aa;
+}
+
+.groundBgColor {
+  background-color: #e0c068;
+}
+
+.flyingBgColor {
+  background-color: #a890f0;
+}
+
+.psychicBgColor {
+  background-color: #f85888;
+}
+
+.bugBgColor {
+  background-color: #a8b820;
+}
+
+.rockBgColor {
+  background-color: #b8a038;
+}
+
+.ghostBgColor {
+  background-color: #705898;
+}
+
+.darkBgColor {
+  background-color: #705848;
+}
+
+.dragonBgColor {
+  background-color: #7038f8;
+}
+
+.steelBgColor {
+  background-color: #b8b8d0;
+}
+
+.fairyBgColor {
+  background-color: #ee99ac;
+}
