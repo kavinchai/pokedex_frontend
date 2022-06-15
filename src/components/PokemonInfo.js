@@ -9,9 +9,6 @@ const PokemonInfo = ({ setPokePage }) => {
   const params = useParams(); // Get pokemon id from link
   let navigate = useNavigate();
   const goToMainPage = () => {
-    const response = getPokemonInfoFromApi().then((res) => {
-      setPokePage(res.id);
-    });
     navigate("/");
   };
   const getPokemonInfoFromApi = async () => {

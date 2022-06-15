@@ -13,13 +13,22 @@ const SearchBar = ({
 }) => {
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
-    const filteredData = pokemonList.filter((item) => {
-      return Object.values(item.name)
-        .join("")
-        .toLowerCase()
-        .includes(searchValue.toLowerCase());
+    // const filteredData = pokemonList.filter((item) => {
+    //   return Object.values(item.name)
+    //     .join("")
+    //     .toLowerCase()
+    //     .includes(searchValue.toLowerCase());
+    // });
+    const filteredData = async () => {
+      const response = await fetch(
+        `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}`
+      );
+      const json = await response.json();
+      return json.data;
+    };
+    filteredData().then((res) => {
+      setFilteredResults(res);
     });
-    setFilteredResults(filteredData);
   };
   return (
     <div className="pokemon-selector">
