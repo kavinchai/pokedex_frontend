@@ -28,6 +28,9 @@ const PokemonInfo = ({ setPokePage }) => {
     // eslint-disable-next-line
   }, []);
 
+  const pokeTypeBgColor = (e) => {
+    return e.length === 2 ? e[1] : e[0];
+  };
   return (
     <div>
       {pokemonInfo === null ? (
@@ -35,11 +38,9 @@ const PokemonInfo = ({ setPokePage }) => {
       ) : (
         <div className="pokeInfoContainer">
           <div
-            className={`pokeInfoHeader ${
-              pokemonInfo.types.length === 2
-                ? pokemonInfo.types[1]
-                : pokemonInfo.types[0]
-            }BgColor`}
+            className={`pokeInfoHeader ${pokeTypeBgColor(
+              pokemonInfo.types
+            )}BgColor`}
           >
             <button
               className="navButtonHome"
@@ -54,11 +55,9 @@ const PokemonInfo = ({ setPokePage }) => {
           </div>
 
           <div
-            className={`pokeInfoBody ${
-              pokemonInfo.types.length === 2
-                ? pokemonInfo.types[1]
-                : pokemonInfo.types[0]
-            }BgColor`}
+            className={`pokeInfoBody ${pokeTypeBgColor(
+              pokemonInfo.types
+            )}BgColor`}
           >
             <div className="pokemonCard">
               <div className="pokemonCardHeader">
@@ -66,9 +65,9 @@ const PokemonInfo = ({ setPokePage }) => {
                 <div className="pokemonCardId">{`#${pokemonInfo.id}`}</div>
                 <div className="blankSpace"></div>
                 <div className="pokemonCardTypes">
-                  {pokemonInfo.types.map((key) => (
-                    <div key={key} className={`${key}Type typeContainer`}>
-                      {key}
+                  {pokemonInfo.types.map((type, index) => (
+                    <div key={index} className={`${type}Type typeContainer`}>
+                      {type}
                     </div>
                   ))}
                 </div>
@@ -97,11 +96,9 @@ const PokemonInfo = ({ setPokePage }) => {
                     <div className="statBarContainer">
                       <div className="statHp">
                         <div
-                          className={`fullBar ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`fullBar ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                         ></div>
                         <div
                           className={`statBar-hp ${
@@ -118,20 +115,16 @@ const PokemonInfo = ({ setPokePage }) => {
                       </div>
                       <div className="statAttack">
                         <div
-                          className={`fullBar ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`fullBar ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                         ></div>
                         <div
-                          className={`statBar-attack ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`statBar-attack ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                           style={{
-                            width: `${(pokemonInfo.stats.attack / 134) * 100}%`,
+                            width: `${(pokemonInfo.stats.attack / 160) * 100}%`,
                           }}
                         >
                           {pokemonInfo.stats.attack}
@@ -139,18 +132,14 @@ const PokemonInfo = ({ setPokePage }) => {
                       </div>
                       <div className="statDefense">
                         <div
-                          className={`fullBar ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`fullBar ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                         ></div>
                         <div
-                          className={`statBar-defense ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`statBar-defense ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                           style={{
                             width: `${
                               (pokemonInfo.stats.defense / 180) * 100
@@ -162,18 +151,14 @@ const PokemonInfo = ({ setPokePage }) => {
                       </div>
                       <div className="statSpeed">
                         <div
-                          className={`fullBar ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`fullBar ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                         ></div>
                         <div
-                          className={`statBar-speed ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`statBar-speed ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                           style={{
                             width: `${(pokemonInfo.stats.speed / 140) * 100}%`,
                           }}
@@ -183,21 +168,17 @@ const PokemonInfo = ({ setPokePage }) => {
                       </div>
                       <div className="statSpAtk">
                         <div
-                          className={`fullBar ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`fullBar ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                         ></div>
                         <div
-                          className={`statBar-special-attack ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`statBar-special-attack ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                           style={{
                             width: `${
-                              (pokemonInfo.stats["special-attack"] / 135) * 100
+                              (pokemonInfo.stats["special-attack"] / 154) * 100
                             }%`,
                           }}
                         >
@@ -206,18 +187,14 @@ const PokemonInfo = ({ setPokePage }) => {
                       </div>
                       <div className="statSpDef">
                         <div
-                          className={`fullBar ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`fullBar ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                         ></div>
                         <div
-                          className={`statBar-special-defense ${
-                            pokemonInfo.types.length === 2
-                              ? pokemonInfo.types[1]
-                              : pokemonInfo.types[0]
-                          }BgColor`}
+                          className={`statBar-special-defense ${pokeTypeBgColor(
+                            pokemonInfo.types
+                          )}BgColor`}
                           style={{
                             width: `${
                               (pokemonInfo.stats["special-defense"] / 230) * 100
@@ -237,11 +214,9 @@ const PokemonInfo = ({ setPokePage }) => {
                   <div className="pokemonDesc">{pokemonInfo.description}</div>
                 </div>
                 <div
-                  className={`pokemonProfile ${
-                    pokemonInfo.types.length === 2
-                      ? pokemonInfo.types[1]
-                      : pokemonInfo.types[0]
-                  }BgColor`}
+                  className={`pokemonProfile ${pokeTypeBgColor(
+                    pokemonInfo.types
+                  )}BgColor`}
                 >
                   <p>Profile</p>
                 </div>
@@ -261,9 +236,14 @@ const PokemonInfo = ({ setPokePage }) => {
                   <div className="rightNumColStat">
                     <div className="statDiv">{pokemonInfo["egg_groups"]}</div>
                     <div className="statDiv abilityBox">
-                      {pokemonInfo.abilities.map((key) => (
-                        <div key={key} className="abilityName">
-                          {key === pokemonInfo.abilities[0] ? key : `, ${key}`}
+                      {pokemonInfo.abilities.map((ability, index) => (
+                        <div key={index} className="abilityName">
+                          {ability ===
+                          pokemonInfo.abilities[
+                            pokemonInfo.abilities.length - 1
+                          ]
+                            ? ability
+                            : `${ability},`}
                         </div>
                       ))}
                     </div>

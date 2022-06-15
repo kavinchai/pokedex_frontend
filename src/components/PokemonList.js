@@ -12,20 +12,18 @@ const PokemonList = ({
     <div className="pokemonListContainer">
       <div className="pokemonData">
         {searchInput.length > 0
-          ? Object.keys(filteredResults).map((key) => (
+          ? filteredResults.map((key, index) => (
               <PokemonCard
-                key={key}
-                index={key}
+                key={index}
                 setPokePage={setPokePage}
-                details={filteredResults[key]}
+                details={key}
               />
             ))
-          : Object.keys(pokemonList).map((key) => (
+          : pokemonList.map((key, index) => (
               <PokemonCard
-                key={key}
-                index={key}
+                key={index}
                 setPokePage={setPokePage}
-                details={pokemonList[key]}
+                details={key}
               />
             ))}
       </div>
