@@ -21,7 +21,9 @@ const Welcome = () => {
           <div className="letterO letter">o</div>
           <div className="letterN letter">N</div>
         </div>
-        <div className="pokemonBody">test</div>
+        <div className="pokemonBody">
+          <p>press any key to start</p>
+        </div>
       </div>
     </>
   );
