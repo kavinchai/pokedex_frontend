@@ -1,6 +1,6 @@
 import React from "react";
-import "../css/PokemonInfoStat.css";
 import { pokeTypeBgColor } from "../helpers";
+import "../css/PokemonInfoStat.css";
 
 const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
   const highestStat = (specificStat) => {

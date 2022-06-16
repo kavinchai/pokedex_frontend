@@ -1,11 +1,11 @@
 .loadingPageContainer {
-  background-color: #eccff2;
+  background-color: #f0dcf4;
   position: absolute;
   height: 100vh;
   width: 100vw;
 }
 
-.loadingHeader {
+/* .loadingHeader {
   margin-top: 5%;
   width: 100%;
   text-align: center;
@@ -51,7 +51,7 @@
 }
 .dot5 {
   animation-delay: 1s;
-}
+} */
 
 .loadingBody {
   width: auto;

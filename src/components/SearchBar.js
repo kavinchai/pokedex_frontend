@@ -1,16 +1,13 @@
-import React from "react";
-import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { MdFirstPage, MdLastPage } from "react-icons/md";
-import { useMemo, useEffect } from "react";
-import "../css/SearchBar.css";
+import React, { useMemo, useEffect } from "react";
 import { debounce } from "lodash";
+import { MdFirstPage, MdLastPage } from "react-icons/md";
+import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { useParams, useNavigate } from "react-router-dom";
+import "../css/SearchBar.css";
 
-const SearchBar = ({
-  pokePage,
-  setPokePage,
-  setFilteredResults,
-  setSearchInput,
-}) => {
+const SearchBar = ({ setFilteredResults, setSearchInput }) => {
+  const navigate = useNavigate();
+  const { pokemonPage } = useParams();
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
     const filteredData = async () => {
@@ -31,18 +28,20 @@ const SearchBar = ({
     }, 300);
     // eslint-disable-next-line
   }, []);
+
   useEffect(() => {
     return () => {
       debouncedSearch.cancel();
     };
   });
+
   return (
     <div className="pokemon-selector">
       <button
         className="navButtonFirst"
         type="submit"
         onClick={() => {
-          setPokePage(1);
+          navigate("/page/1");
         }}
       >
         <MdFirstPage style={{ color: "#FDF4FF", fontSize: "20px" }} />
@@ -51,7 +50,9 @@ const SearchBar = ({
         className="navButtonLeft"
         type="submit"
         onClick={() => {
-          setPokePage(pokePage === 1 ? 1 : pokePage - 1);
+          parseInt(pokemonPage) === 1
+            ? navigate("/page/1")
+            : navigate(`/page/${parseInt(pokemonPage) - 1}`);
         }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
@@ -74,7 +75,9 @@ const SearchBar = ({
         className="navButtonRight"
         type="submit"
         onClick={() => {
-          setPokePage(pokePage + 1 < 38 ? pokePage + 1 : 37);
+          parseInt(pokemonPage) + 1 < 38
+            ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
+            : navigate("/page/37");
         }}
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />
@@ -83,7 +86,7 @@ const SearchBar = ({
         className="navButtonLast"
         type="submit"
         onClick={() => {
-          setPokePage(37);
+          navigate("/page/37");
         }}
       >
         <MdLastPage style={{ color: "#FDF4FF", fontSize: "20px" }} />

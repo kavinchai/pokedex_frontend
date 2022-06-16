@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
 import { pokeTypeBgColor } from "../helpers";
-import LoadingPage from "./LoadingPage";
+import { FaArrowLeft } from "react-icons/fa";
 import PokemonInfoStat from "./PokemonInfoStat";
+import LoadingPage from "./LoadingPage";
 import "../css/PokemonInfo.css";
 
-const PokemonInfo = ({ pokemonPage }) => {
-  const param = useParams(); // Get pokemon id from link
+const PokemonInfo = () => {
   let navigate = useNavigate();
+  const param = useParams(); // Get pokemon id from link
+  const [pokemonInfo, setPokemonInfo] = useState(null);
   const getPokemonInfoFromApi = async () => {
     const response = await fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${param.pokemonId}`
     );
     const json = await response.json();
-    console.log(json.data);
     return json.data;
   };
-  const [pokemonInfo, setPokemonInfo] = useState(null);
   useEffect(() => {
     getPokemonInfoFromApi().then((res) => {
       setPokemonInfo(res);
     });
     // eslint-disable-next-line
-  }, []);
+  });
 
   return (
     <>
@@ -165,8 +164,10 @@ const PokemonInfo = ({ pokemonPage }) => {
                           pokemonInfo.abilities[
                             pokemonInfo.abilities.length - 1
                           ]
-                            ? ability.replace("-", " ")
-                            : `${ability.replace("-", " ")},`}
+                            ? ability.replace(/[0-9]/g, "").replace("-", " ")
+                            : `${ability
+                                .replace(/[0-9]/g, "")
+                                .replace("-", " ")},`}
                         </div>
                       ))}
                     </div>
