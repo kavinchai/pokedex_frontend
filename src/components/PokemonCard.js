@@ -6,8 +6,7 @@ const PokemonCard = ({ pokePage, details }) => {
   let navigate = useNavigate();
   const { id, name, image, types } = details;
   const goToPokemonInfo = () => {
-    console.log({ id });
-    navigate(`/pokemonInfo/${id}`, pokePage);
+    navigate(`/pokemonInfo/${id}`);
   };
   return (
     <button className="pokemonContainer" onClick={goToPokemonInfo}>

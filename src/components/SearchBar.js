@@ -8,9 +8,7 @@ import { debounce } from "lodash";
 const SearchBar = ({
   pokePage,
   setPokePage,
-  pokemonList,
   setFilteredResults,
-  searchInput,
   setSearchInput,
 }) => {
   const searchItems = (searchValue) => {
@@ -31,6 +29,7 @@ const SearchBar = ({
     return debounce((e) => {
       searchItems(e.target.value);
     }, 300);
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     return () => {

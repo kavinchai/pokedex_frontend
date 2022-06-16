@@ -15,7 +15,6 @@ function App() {
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokePage}`
     );
     const json = await response.json();
-    // console.log(json.data);
     return json.data;
   };
 
@@ -37,9 +36,7 @@ function App() {
           <SearchBar
             pokePage={pokePage}
             setPokePage={setPokePage}
-            pokemonList={pokemonList}
             setFilteredResults={setFilteredResults}
-            searchInput={searchInput}
             setSearchInput={setSearchInput}
           />
           <PokemonList

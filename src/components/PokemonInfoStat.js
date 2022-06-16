@@ -1,10 +1,8 @@
 import React from "react";
-import "../css/CreateStat.css";
+import "../css/PokemonInfoStat.css";
+import { pokeTypeBgColor } from "../helpers";
 
-const CreateStat = ({ pokemonInfo, specificStat }) => {
-  const pokeTypeBgColor = (e) => {
-    return e.length === 2 ? e[1] : e[0];
-  };
+const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
   const highestStat = (specificStat) => {
     let numStat;
     if (specificStat === "hp") {
@@ -44,4 +42,4 @@ const CreateStat = ({ pokemonInfo, specificStat }) => {
   );
 };
 
-export default CreateStat;
+export default PokemonInfoStat;

@@ -6,7 +6,7 @@ function LoadingPage() {
   return (
     <div className="loadingPageContainer">
       <div className="loadingBody">
-        <img className=" pokeballProp" src={pokeballImg}></img>
+        <img className="pokeballProp" src={pokeballImg} alt="pokeballGif"></img>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { pokeTypeBgColor } from "../helpers";
 import LoadingPage from "./LoadingPage";
-import CreateStat from "./CreateStat";
+import PokemonInfoStat from "./PokemonInfoStat";
 import "../css/PokemonInfo.css";
 
-const PokemonInfo = () => {
+const PokemonInfo = ({ pokemonPage }) => {
   const param = useParams(); // Get pokemon id from link
   let navigate = useNavigate();
   const getPokemonInfoFromApi = async () => {
@@ -19,15 +19,11 @@ const PokemonInfo = () => {
   };
   const [pokemonInfo, setPokemonInfo] = useState(null);
   useEffect(() => {
-    const response = getPokemonInfoFromApi().then((res) => {
+    getPokemonInfoFromApi().then((res) => {
       setPokemonInfo(res);
     });
     // eslint-disable-next-line
   }, []);
-
-  const pokeTypeBgColor = (e) => {
-    return e.length === 2 ? e[1] : e[0];
-  };
 
   return (
     <>
@@ -76,51 +72,49 @@ const PokemonInfo = () => {
               </div>
               <div className="line"></div>
               <div className="pokemonStats">
-                <div className="pokePicStat">
-                  <div className="statsChild Left">
-                    <img
-                      src={pokemonInfo.image}
-                      alt={pokemonInfo.name}
-                      className="statsChildImg"
-                    ></img>
+                <div className="statsChild Left">
+                  <img
+                    src={pokemonInfo.image}
+                    alt={pokemonInfo.name}
+                    className="statsChildImg"
+                  ></img>
+                </div>
+                <div className="statsChild Right">
+                  <div className="statTextContainer">
+                    <div className="statText">
+                      <p>HP</p>
+                      <p>Attack</p>
+                      <p>Defense</p>
+                      <p>Speed</p>
+                      <p>Sp Atk</p>
+                      <p>Sp Def</p>
+                    </div>
                   </div>
-                  <div className="statsChild Right">
-                    <div className="statTextContainer">
-                      <div className="statText">
-                        <p>HP</p>
-                        <p>Attack</p>
-                        <p>Defense</p>
-                        <p>Speed</p>
-                        <p>Sp Atk</p>
-                        <p>Sp Def</p>
-                      </div>
-                    </div>
-                    <div className="statBarContainer">
-                      <CreateStat
-                        pokemonInfo={pokemonInfo}
-                        specificStat={"hp"}
-                      />
-                      <CreateStat
-                        pokemonInfo={pokemonInfo}
-                        specificStat={"attack"}
-                      />
-                      <CreateStat
-                        pokemonInfo={pokemonInfo}
-                        specificStat={"defense"}
-                      />
-                      <CreateStat
-                        pokemonInfo={pokemonInfo}
-                        specificStat={"speed"}
-                      />
-                      <CreateStat
-                        pokemonInfo={pokemonInfo}
-                        specificStat={"special-attack"}
-                      />
-                      <CreateStat
-                        pokemonInfo={pokemonInfo}
-                        specificStat={"special-defense"}
-                      />
-                    </div>
+                  <div className="statBarContainer">
+                    <PokemonInfoStat
+                      pokemonInfo={pokemonInfo}
+                      specificStat={"hp"}
+                    />
+                    <PokemonInfoStat
+                      pokemonInfo={pokemonInfo}
+                      specificStat={"attack"}
+                    />
+                    <PokemonInfoStat
+                      pokemonInfo={pokemonInfo}
+                      specificStat={"defense"}
+                    />
+                    <PokemonInfoStat
+                      pokemonInfo={pokemonInfo}
+                      specificStat={"speed"}
+                    />
+                    <PokemonInfoStat
+                      pokemonInfo={pokemonInfo}
+                      specificStat={"special-attack"}
+                    />
+                    <PokemonInfoStat
+                      pokemonInfo={pokemonInfo}
+                      specificStat={"special-defense"}
+                    />
                   </div>
                 </div>
               </div>
@@ -157,8 +151,10 @@ const PokemonInfo = () => {
                           pokemonInfo.egg_groups[
                             pokemonInfo.egg_groups.length - 1
                           ]
-                            ? egg_group
-                            : `${egg_group},`}
+                            ? egg_group.replace(/[0-9]/g, "").replace("-", " ")
+                            : `${egg_group
+                                .replace(/[0-9]/g, "")
+                                .replace("-", " ")},`}
                         </div>
                       ))}
                     </div>
@@ -169,8 +165,8 @@ const PokemonInfo = () => {
                           pokemonInfo.abilities[
                             pokemonInfo.abilities.length - 1
                           ]
-                            ? ability
-                            : `${ability},`}
+                            ? ability.replace("-", " ")
+                            : `${ability.replace("-", " ")},`}
                         </div>
                       ))}
                     </div>
