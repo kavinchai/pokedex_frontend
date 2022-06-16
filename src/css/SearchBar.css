@@ -6,7 +6,7 @@
   gap: 32px;
 
   position: relative;
-  height: auto;
+  height: 9%;
   width: auto;
 
   background: rgba(245, 235, 255, 0.5);
@@ -27,7 +27,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  font-family: "Roboto";
+  font-family: "PokemonSolid";
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
@@ -75,7 +75,7 @@
 
 .searchButton {
   position: absolute;
-  top: 64px;
+  top: 41px;
   background-color: transparent;
   border: none;
 }
@@ -92,4 +92,19 @@
   border-radius: 100px;
   background-color: #574f62;
   mix-blend-mode: normal;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }

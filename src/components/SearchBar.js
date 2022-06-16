@@ -4,6 +4,7 @@ import { MdFirstPage, MdLastPage } from "react-icons/md";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
 import "../css/SearchBar.css";
+import "../fonts/PokemonSolid.ttf";
 
 const SearchBar = ({ setFilteredResults, setSearchInput }) => {
   const navigate = useNavigate();
@@ -57,7 +58,9 @@ const SearchBar = ({ setFilteredResults, setSearchInput }) => {
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
       </button>
-      <p className="pokedex">Pokedéx</p>
+      <a className="pokedex" href="/">
+        Pokedéx
+      </a>
       <div className="pokemon-searchBarContainer">
         <button type="submit" className="searchButton">
           <FaSearch style={{ fontSize: "20px", paddingLeft: "15px" }} />

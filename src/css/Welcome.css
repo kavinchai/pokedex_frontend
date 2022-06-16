@@ -54,10 +54,15 @@
   justify-content: center;
 }
 
-.pokemonBody p {
+.pressKey {
+  position: absolute;
+  bottom: 10%;
+  animation: blinking 0.5s linear infinite;
+}
+
+.bottomText {
   position: absolute;
   bottom: 0;
-  animation: blinking 0.5s linear infinite;
 }
 
 @keyframes blinking {
