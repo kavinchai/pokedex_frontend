@@ -1,6 +1,5 @@
 .pokeInfoContainer {
-  /* height: 100vh; */
-  /* background-color: red; */
+  height: 100vh;
 }
 
 .pokeInfoHeader {
@@ -45,20 +44,20 @@
 }
 
 .pokeInfoBody {
-  height: 100vh;
+  /* height: 100%; */
 }
 
 .pokemonCard {
   display: flex;
   flex-direction: column;
 
-  position: absolute;
+  position: flex;
   width: 55%;
   height: auto;
 
   /* top: 144px; */
   /* left: 25%; */
-  margin: 64px 22.5% auto;
+  margin: 0px 22.5% 0px;
 
   background: #ffffff;
   border-radius: 16px;
@@ -165,7 +164,7 @@
 .pokemonDetails {
   /* background-color: pink; */
   margin: 16px 24px 38px;
-  height: 378px;
+  height: auto;
 }
 
 .genusDescContainer {

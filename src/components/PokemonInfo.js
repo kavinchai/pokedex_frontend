@@ -6,12 +6,12 @@ import LoadingPage from "./LoadingPage";
 import CreateStat from "./CreateStat";
 import "../css/PokemonInfo.css";
 
-const PokemonInfo = ({ pokePage }) => {
-  const params = useParams(); // Get pokemon id from link
+const PokemonInfo = () => {
+  const param = useParams(); // Get pokemon id from link
   let navigate = useNavigate();
   const getPokemonInfoFromApi = async () => {
     const response = await fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${params.pokemonId}`
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${param.pokemonId}`
     );
     const json = await response.json();
     console.log(json.data);
@@ -22,7 +22,6 @@ const PokemonInfo = ({ pokePage }) => {
     const response = getPokemonInfoFromApi().then((res) => {
       setPokemonInfo(res);
     });
-    console.log(response);
     // eslint-disable-next-line
   }, []);
 
@@ -31,11 +30,15 @@ const PokemonInfo = ({ pokePage }) => {
   };
 
   return (
-    <div>
+    <>
       {pokemonInfo === null ? (
         <LoadingPage />
       ) : (
-        <div className="pokeInfoContainer">
+        <div
+          className={`pokeInfoContainer ${pokeTypeBgColor(
+            pokemonInfo.types
+          )}BgColor`}
+        >
           <div
             className={`pokeInfoHeader ${pokeTypeBgColor(
               pokemonInfo.types
@@ -167,7 +170,7 @@ const PokemonInfo = ({ pokePage }) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
