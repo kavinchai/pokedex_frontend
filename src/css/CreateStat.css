@@ -23,6 +23,13 @@
   color: white;
   position: relative;
   height: 24px;
+  animation: loadStat 0.5s ease-in;
+}
+
+@keyframes loadStat {
+  0% {
+    width: 0%;
+  }
 }
 
 .fullBar {
