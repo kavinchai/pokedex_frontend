@@ -150,10 +150,21 @@ const PokemonInfo = () => {
                     <p>Abilities:</p>
                   </div>
                   <div className="rightNumColStat">
-                    <div className="statDiv">{pokemonInfo["egg_groups"]}</div>
-                    <div className="statDiv abilityBox">
+                    <div className="statDiv eggGroupDiv">
+                      {pokemonInfo.egg_groups.map((egg_group, index) => (
+                        <div key={index} className={`eggGroup${index}`}>
+                          {egg_group ===
+                          pokemonInfo.egg_groups[
+                            pokemonInfo.egg_groups.length - 1
+                          ]
+                            ? egg_group
+                            : `${egg_group},`}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="statDiv abilityDiv">
                       {pokemonInfo.abilities.map((ability, index) => (
-                        <div key={index} className="abilityName">
+                        <div key={index} className={`ability${index}`}>
                           {ability ===
                           pokemonInfo.abilities[
                             pokemonInfo.abilities.length - 1
