@@ -24,7 +24,7 @@ const Welcome = () => {
           <div className="wordTM word animate">TM</div>
         </div>
         <div className="pokemonBody">
-          <img className="asheImg" src={asheImg}></img>
+          <img className="ashImg" src={asheImg} alt="ashImg"></img>
           <div className="pressKey">press any key to start</div>
           <div className="bottomText">&#169;`95.`96.`98 GAME FREAK inc. </div>
         </div>

@@ -10,17 +10,14 @@ const PokemonInfo = () => {
   let navigate = useNavigate();
   const param = useParams(); // Get pokemon id from link
   const [pokemonInfo, setPokemonInfo] = useState(null);
-  const getPokemonInfoFromApi = async () => {
-    const response = await fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${param.pokemonId}`
-    );
-    const json = await response.json();
-    return json.data;
-  };
   useEffect(() => {
-    getPokemonInfoFromApi().then((res) => {
-      setPokemonInfo(res);
-    });
+    fetch(
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${param.pokemonId}`
+    )
+      .then((res) => res.json())
+      .then(({ data }) => {
+        setPokemonInfo(data);
+      });
     // eslint-disable-next-line
   });
 
