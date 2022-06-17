@@ -7,13 +7,13 @@ import "../css/SearchBar.css";
 import "../fonts/PokemonSolid.ttf";
 
 const SearchBar = ({
-  filteredSearchPage,
-  setFilteredSearchPage,
   searchInput,
   filteredMaxPage,
+  filteredSearchPage,
+  setSearchInput,
   setFilteredMaxPage,
   setFilteredResults,
-  setSearchInput,
+  setFilteredSearchPage,
 }) => {
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
@@ -24,21 +24,10 @@ const SearchBar = ({
         `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`
       );
       const json = await response.json();
-      return json.data;
+      setFilteredResults(json.data);
+      setFilteredMaxPage(json.meta.last_page);
     };
-    const filteredMeta = async (filteredSearchPage) => {
-      const response = await fetch(
-        `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`
-      );
-      const json = await response.json();
-      return json.meta.last_page;
-    };
-    filteredData(filteredSearchPage).then((res) => {
-      setFilteredResults(res);
-    });
-    filteredMeta(filteredSearchPage).then((res) => {
-      setFilteredMaxPage(res);
-    });
+    filteredData(filteredSearchPage);
   };
 
   const debouncedSearch = useMemo(() => {

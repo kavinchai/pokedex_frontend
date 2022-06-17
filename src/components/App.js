@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
 import LoadingPage from "./LoadingPage";
-import { getPokemonFromApi } from "../helpers";
+
 import "typeface-roboto";
 import "../css/MainScreen.css";
 
@@ -14,10 +14,15 @@ function App() {
   const [filteredResults, setFilteredResults] = useState([]);
   const [filteredSearchPage, setFilteredSearchPage] = useState(1);
   const [filteredMaxPage, setFilteredMaxPage] = useState();
+
   useEffect(() => {
-    getPokemonFromApi(pokemonPage).then((res) => {
-      setPokemonList(res);
-    });
+    fetch(
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
+    )
+      .then((res) => res.json())
+      .then(({ data }) => {
+        setPokemonList(data);
+      });
     // eslint-disable-next-line
   }, [pokemonPage]);
 
@@ -28,14 +33,13 @@ function App() {
       ) : (
         <div className="appContainer">
           <SearchBar
-            filteredSearchPage={filteredSearchPage}
-            setFilteredSearchPage={setFilteredSearchPage}
-            setPokemonList={setPokemonList}
             searchInput={searchInput}
             filteredMaxPage={filteredMaxPage}
+            filteredSearchPage={filteredSearchPage}
+            setSearchInput={setSearchInput}
             setFilteredMaxPage={setFilteredMaxPage}
             setFilteredResults={setFilteredResults}
-            setSearchInput={setSearchInput}
+            setFilteredSearchPage={setFilteredSearchPage}
           />
           <PokemonList
             pokemonList={pokemonList}
