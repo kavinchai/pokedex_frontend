@@ -12,7 +12,8 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
   const [pokemonList, setPokemonList] = useState(null);
   const [filteredResults, setFilteredResults] = useState([]);
-
+  const [filteredSearchPage, setFilteredSearchPage] = useState(1);
+  const [filteredMaxPage, setFilteredMaxPage] = useState();
   useEffect(() => {
     getPokemonFromApi(pokemonPage).then((res) => {
       setPokemonList(res);
@@ -27,7 +28,12 @@ function App() {
       ) : (
         <div className="appContainer">
           <SearchBar
+            filteredSearchPage={filteredSearchPage}
+            setFilteredSearchPage={setFilteredSearchPage}
             setPokemonList={setPokemonList}
+            searchInput={searchInput}
+            filteredMaxPage={filteredMaxPage}
+            setFilteredMaxPage={setFilteredMaxPage}
             setFilteredResults={setFilteredResults}
             setSearchInput={setSearchInput}
           />

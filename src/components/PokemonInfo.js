@@ -183,4 +183,3 @@ const PokemonInfo = () => {
 };
 
 export default PokemonInfo;
-//https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=p&page=2

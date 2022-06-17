@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import { debounce } from "lodash";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
@@ -6,35 +6,57 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../css/SearchBar.css";
 import "../fonts/PokemonSolid.ttf";
 
-const SearchBar = ({ setFilteredResults, setSearchInput }) => {
+const SearchBar = ({
+  filteredSearchPage,
+  setFilteredSearchPage,
+  searchInput,
+  filteredMaxPage,
+  setFilteredMaxPage,
+  setFilteredResults,
+  setSearchInput,
+}) => {
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
-  const searchItems = (searchValue) => {
+  const searchItems = (searchValue, filteredSearchPage) => {
     setSearchInput(searchValue);
-    const filteredData = async () => {
+    const filteredData = async (filteredSearchPage) => {
       const response = await fetch(
-        `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}`
+        `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`
       );
       const json = await response.json();
       return json.data;
     };
-    filteredData().then((res) => {
+    const filteredMeta = async (filteredSearchPage) => {
+      const response = await fetch(
+        `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`
+      );
+      const json = await response.json();
+      return json.meta.last_page;
+    };
+    filteredData(filteredSearchPage).then((res) => {
       setFilteredResults(res);
+    });
+    filteredMeta(filteredSearchPage).then((res) => {
+      setFilteredMaxPage(res);
     });
   };
 
   const debouncedSearch = useMemo(() => {
     return debounce((e) => {
-      searchItems(e.target.value);
+      searchItems(e.target.value, filteredSearchPage);
     }, 300);
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-    return () => {
-      debouncedSearch.cancel();
-    };
-  });
+    if (filteredSearchPage === 1 && searchInput.length === 0) {
+      return () => {
+        debouncedSearch.cancel();
+      };
+    } else {
+      searchItems(searchInput, filteredSearchPage);
+    }
+  }, [filteredSearchPage]);
 
   return (
     <div className="pokemon-selector">
@@ -51,7 +73,11 @@ const SearchBar = ({ setFilteredResults, setSearchInput }) => {
         className="navButtonLeft"
         type="submit"
         onClick={() => {
-          parseInt(pokemonPage) === 1
+          searchInput.length > 0
+            ? filteredSearchPage === 1
+              ? setFilteredSearchPage(1)
+              : setFilteredSearchPage(filteredSearchPage - 1)
+            : parseInt(pokemonPage) === 1
             ? navigate("/page/1")
             : navigate(`/page/${parseInt(pokemonPage) - 1}`);
         }}
@@ -68,7 +94,6 @@ const SearchBar = ({ setFilteredResults, setSearchInput }) => {
         <input
           className="pokemon-searchBar"
           type="text"
-          // value={searchInput}
           onChange={debouncedSearch}
           placeholder="Search"
         />
@@ -78,7 +103,11 @@ const SearchBar = ({ setFilteredResults, setSearchInput }) => {
         className="navButtonRight"
         type="submit"
         onClick={() => {
-          parseInt(pokemonPage) + 1 < 38
+          searchInput.length > 0
+            ? filteredSearchPage + 1 < filteredMaxPage
+              ? setFilteredSearchPage(filteredSearchPage + 1)
+              : setFilteredSearchPage(filteredMaxPage)
+            : parseInt(pokemonPage) + 1 < 38
             ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
             : navigate("/page/37");
         }}
@@ -99,3 +128,4 @@ const SearchBar = ({ setFilteredResults, setSearchInput }) => {
 };
 
 export default SearchBar;
+//https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=p&page=2

@@ -5,10 +5,10 @@ export const pokeTypeBgColor = (e) => {
     (e[0] === "flying" && e[1] === "ground") ||
     (e[0] === "ice" && e[1] === "water") ||
     (e[0] === "psychic" && e[1] === "ice") ||
-    (e[0] === "psychic" && e[1] === "steel") ||
     (e[0] === "psychic" && e[1] === "water") ||
     (e[0] === "steel" && e[1] === "ground") ||
     (e[0] === "steel" && e[1] === "rock") ||
+    (e[0] === "dark" && e[1] === "rock") ||
     (e[0] === "bug" && e[1] === "rock")
   ) {
     return e[0];

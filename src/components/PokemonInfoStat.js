@@ -6,13 +6,13 @@ const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
   const highestStat = (specificStat) => {
     let numStat;
     if (specificStat === "hp") {
-      numStat = 250;
+      numStat = 255;
     } else if (specificStat === "attack") {
       numStat = 160;
     } else if (specificStat === "defense") {
-      numStat = 180;
+      numStat = 200;
     } else if (specificStat === "speed") {
-      numStat = 130;
+      numStat = 150;
     } else if (specificStat === "special-attack") {
       numStat = 154;
     } else if (specificStat === "special-defense") {

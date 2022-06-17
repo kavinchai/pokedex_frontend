@@ -75,7 +75,7 @@
 
 .searchButton {
   position: absolute;
-  top: 41px;
+  top: 42%;
   background-color: transparent;
   border: none;
 }
@@ -100,11 +100,9 @@ a:link {
 a:visited {
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: none;
 }
-
 a:active {
   text-decoration: none;
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import "../css/Welcome.css";
 import "../fonts/PokemonSolid.ttf";
-
+import "../fonts/slkscr.ttf";
+import asheImg from "../contents/img/ashImg.png";
 const Welcome = () => {
   return (
     <>
@@ -13,17 +14,19 @@ const Welcome = () => {
         }}
       >
         <div className="pokemonHeadAnimation">
-          <div className="letterP letter">P</div>
-          <div className="letterO letter">o</div>
-          <div className="letterK letter">K</div>
-          <div className="letterE letter">e</div>
-          <div className="letterM letter">M</div>
-          <div className="letterO letter">o</div>
-          <div className="letterN letter">N</div>
+          <div className="letterP letter animate">P</div>
+          <div className="letterO letter animate">o</div>
+          <div className="letterK letter animate">K</div>
+          <div className="letterE letter animate">é</div>
+          <div className="letterM letter animate">M</div>
+          <div className="letterO letter animate">o</div>
+          <div className="letterN letter animate">N</div>
+          <div className="wordTM word animate">TM</div>
         </div>
         <div className="pokemonBody">
+          <img className="asheImg" src={asheImg}></img>
           <div className="pressKey">press any key to start</div>
-          <div className="bottomText">&#169; </div>
+          <div className="bottomText">&#169;`95.`96.`98 GAME FREAK inc. </div>
         </div>
       </div>
     </>
