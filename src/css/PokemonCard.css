@@ -81,6 +81,71 @@
   padding: 4px 8px;
 }
 
+.pokemonContainer {
+  transform: scale(0);
+  animation: wave 0.5s linear;
+  animation-name: wave;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.pokemonContainer:hover {
+  transform: scale(1.1);
+  background-color: #f1d6f8;
+  border: 1px solid #c99cd4;
+  cursor: pointer;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pokemonCard0 {
+  animation-delay: 0s;
+}
+
+.pokemonCard1,
+.pokemonCard5 {
+  animation-delay: 0.1s;
+}
+
+.pokemonCard2,
+.pokemonCard6,
+.pokemonCard10 {
+  animation-delay: 0.2s;
+}
+
+.pokemonCard3,
+.pokemonCard7,
+.pokemonCard11 {
+  animation-delay: 0.3s;
+}
+
+.pokemonCard4,
+.pokemonCard8,
+.pokemonCard12 {
+  animation-delay: 0.4s;
+}
+
+.pokemonCard9,
+.pokemonCard13 {
+  animation-delay: 0.5s;
+}
+
+.pokemonCard14 {
+  animation-delay: 0.6s;
+}
+
 .normalType {
   color: #a8a878;
   background: rgba(168, 168, 120, 0.25);

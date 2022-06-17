@@ -8,10 +8,10 @@ const PokemonList = ({ pokemonList, searchInput, filteredResults }) => {
       <div className="pokemonData">
         {searchInput.length > 0
           ? filteredResults.map((key, index) => (
-              <PokemonCard key={index} details={key} />
+              <PokemonCard key={index} identity={index} details={key} />
             ))
           : pokemonList.map((key, index) => (
-              <PokemonCard key={index} details={key} />
+              <PokemonCard key={index} identity={index} details={key} />
             ))}
       </div>
     </div>

@@ -1,15 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/Pokemon.css";
+import "../css/PokemonCard.css";
 
-const PokemonCard = ({ details }) => {
+const PokemonCard = ({ identity, details: { id, name, image, types } }) => {
   let navigate = useNavigate();
-  const { id, name, image, types } = details;
   const goToPokemonInfo = () => {
     navigate(`/pokemonInfo/${id}`);
   };
   return (
-    <button className="pokemonContainer" onClick={goToPokemonInfo}>
+    <button
+      className={`pokemonContainer pokemonCard${identity}`}
+      onClick={goToPokemonInfo}
+    >
       <div className="pokeNameContainer">
         <div className="pokeName">{name}</div>
       </div>

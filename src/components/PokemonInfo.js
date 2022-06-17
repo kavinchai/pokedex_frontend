@@ -8,12 +8,10 @@ import "../css/PokemonInfo.css";
 
 const PokemonInfo = () => {
   let navigate = useNavigate();
-  const param = useParams(); // Get pokemon id from link
+  const { pokemonId } = useParams(); // Get pokemon id from link
   const [pokemonInfo, setPokemonInfo] = useState(null);
   useEffect(() => {
-    fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${param.pokemonId}`
-    )
+    fetch(`https://intern-pokedex.myriadapps.com/api/v1/pokemon/${pokemonId}`)
       .then((res) => res.json())
       .then(({ data }) => {
         setPokemonInfo(data);

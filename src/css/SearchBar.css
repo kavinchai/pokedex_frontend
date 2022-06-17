@@ -92,6 +92,7 @@
   border-radius: 100px;
   background-color: #574f62;
   mix-blend-mode: normal;
+  cursor: pointer;
 }
 
 a:link {
