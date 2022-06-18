@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { pokeTypeBgColor } from "../helpers";
 import { FaArrowLeft } from "react-icons/fa";
+import { formatText } from "../helpers";
 import PokemonInfoStat from "./PokemonInfoStat";
 import LoadingPage from "./LoadingPage";
 import "../css/PokemonInfo.css";
@@ -145,10 +146,8 @@ const PokemonInfo = () => {
                           pokemonInfo.egg_groups[
                             pokemonInfo.egg_groups.length - 1
                           ]
-                            ? egg_group.replace(/[0-9]/g, "").replace("-", " ")
-                            : `${egg_group
-                                .replace(/[0-9]/g, "")
-                                .replace("-", " ")},`}
+                            ? formatText(egg_group)
+                            : `${formatText(egg_group)},`}
                         </div>
                       ))}
                     </div>
@@ -159,10 +158,8 @@ const PokemonInfo = () => {
                           pokemonInfo.abilities[
                             pokemonInfo.abilities.length - 1
                           ]
-                            ? ability.replace(/[0-9]/g, "").replace("-", " ")
-                            : `${ability
-                                .replace(/[0-9]/g, "")
-                                .replace("-", " ")},`}
+                            ? formatText(ability)
+                            : `${formatText(ability)},`}
                         </div>
                       ))}
                     </div>

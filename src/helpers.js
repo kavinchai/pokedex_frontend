@@ -16,3 +16,7 @@ export const pokeTypeBgColor = (e) => {
     return e.length === 2 ? e[1] : e[0];
   }
 };
+
+export const formatText = (e) =>{
+  return e.replace(/[0-9]/g, "").replace("-", " ");
+}
