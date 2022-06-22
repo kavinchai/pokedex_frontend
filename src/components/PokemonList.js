@@ -3,6 +3,7 @@ import PokemonCard from "./PokemonCard";
 import "../css/PokemonList.css";
 
 const PokemonList = ({
+  filteredSearchPage,
   pokemonPage,
   pokemonList,
   searchInput,
@@ -14,7 +15,7 @@ const PokemonList = ({
         {searchInput.length > 0
           ? filteredResults.map((details, index) => (
               <PokemonCard
-                key={`${pokemonPage} ${index}`}
+                key={`${filteredSearchPage} ${index}`}
                 identity={index}
                 details={details}
               />
