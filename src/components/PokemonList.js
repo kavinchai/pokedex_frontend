@@ -3,11 +3,11 @@ import PokemonCard from "./PokemonCard";
 import "../css/PokemonList.css";
 
 const PokemonList = ({
-  filteredSearchPage,
   pokemonPage,
   pokemonList,
   searchInput,
   filteredResults,
+  filteredSearchPage,
 }) => {
   return (
     <div className="pokemonListContainer">

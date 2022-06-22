@@ -91,7 +91,7 @@
   animation-fill-mode: none;
   transform: scale(1.1);
   background-color: #f1d6f8;
-  border: 1px solid #c99cd4;
+  border: 2px solid #c99cd4;
   cursor: pointer;
 }
 

@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
@@ -8,14 +8,15 @@ import "../css/SearchBar.css";
 import "../fonts/PokemonSolid.ttf";
 
 const SearchBar = ({
-  searchInput,
   maxPage,
+  searchInput,
   filteredSearchPage,
-  setSearchInput,
   setMaxPage,
+  setSearchInput,
   setFilteredResults,
   setFilteredSearchPage,
 }) => {
+  const [showFilter, setShowFilter] = useState(false);
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
   const searchItems = (searchValue, filteredSearchPage) => {
@@ -48,74 +49,81 @@ const SearchBar = ({
   }, [filteredSearchPage]);
 
   return (
-    <div className="pokemon-selector">
-      <button
-        className="navButtonFirst navButton"
-        type="submit"
-        onClick={() => {
-          searchInput.length > 0
-            ? setFilteredSearchPage(1)
-            : navigate("/page/1");
-        }}
-      >
-        <MdFirstPage style={{ color: "#FDF4FF", fontSize: "20px" }} />
-      </button>
-      <button
-        className="navButtonLeft navButton"
-        type="submit"
-        onClick={() => {
-          searchInput.length > 0
-            ? filteredSearchPage === 1
+    <>
+      <div className="pokemonSearchBarContainer">
+        <button
+          className="navButtonFirst navBtn"
+          type="submit"
+          onClick={() => {
+            searchInput.length > 0
               ? setFilteredSearchPage(1)
-              : setFilteredSearchPage(filteredSearchPage - 1)
-            : parseInt(pokemonPage) === 1
-            ? navigate("/page/1")
-            : navigate(`/page/${parseInt(pokemonPage) - 1}`);
-        }}
-      >
-        <FaArrowLeft style={{ color: "#FDF4FF" }} />
-      </button>
-      <a className="pokedex" href="/">
-        Pokedéx
-      </a>
-      <div className="pokemon-searchBarContainer">
-        <button type="submit" className="searchButton">
-          <FaSearch className="searchIcon" />
+              : navigate("/page/1");
+          }}
+        >
+          <MdFirstPage style={{ fontSize: "20px" }} />
         </button>
-        <input
-          className="pokemon-searchBar"
-          type="text"
-          onChange={debouncedSearch}
-          placeholder="Search"
-        />
+        <button
+          className="navButtonLeft navBtn"
+          type="submit"
+          onClick={() => {
+            searchInput.length > 0
+              ? filteredSearchPage === 1
+                ? setFilteredSearchPage(1)
+                : setFilteredSearchPage(filteredSearchPage - 1)
+              : parseInt(pokemonPage) === 1
+              ? navigate("/page/1")
+              : navigate(`/page/${parseInt(pokemonPage) - 1}`);
+          }}
+        >
+          <FaArrowLeft />
+        </button>
+        <a className="pokedex" href="/">
+          Pokedéx
+        </a>
+        <div className="searchInputContainer">
+          <FaSearch className="searchIcon" />
+          <input
+            className="searchInput"
+            type="text"
+            onChange={debouncedSearch}
+            placeholder="Search"
+          />
+        </div>
+        {/* <button
+          className="filterButton navBtn"
+          onClick={() => setShowFilter((prev) => !prev)}
+        >
+          Filter
+        </button> */}
+        <button
+          className="navButtonRight navBtn"
+          type="submit"
+          onClick={() => {
+            searchInput.length > 0
+              ? filteredSearchPage + 1 < maxPage
+                ? setFilteredSearchPage(filteredSearchPage + 1)
+                : setFilteredSearchPage(maxPage)
+              : parseInt(pokemonPage) + 1 < maxPage
+              ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
+              : navigate(`/page/${maxPage}`);
+          }}
+        >
+          <FaArrowRight />
+        </button>
+        <button
+          className="navButtonLast navBtn"
+          type="submit"
+          onClick={() => {
+            searchInput.length > 0
+              ? setFilteredSearchPage(maxPage)
+              : navigate(`/page/${maxPage}`);
+          }}
+        >
+          <MdLastPage style={{ fontSize: "20px" }} />
+        </button>
+        <div className="filterSection">{showFilter ? <p>test1</p> : null}</div>
       </div>
-      <button
-        className="navButtonRight navButton"
-        type="submit"
-        onClick={() => {
-          searchInput.length > 0
-            ? filteredSearchPage + 1 < maxPage
-              ? setFilteredSearchPage(filteredSearchPage + 1)
-              : setFilteredSearchPage(maxPage)
-            : parseInt(pokemonPage) + 1 < maxPage
-            ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
-            : navigate(`/page/${maxPage}`);
-        }}
-      >
-        <FaArrowRight style={{ color: "#FDF4FF" }} />
-      </button>
-      <button
-        className="navButtonLast navButton"
-        type="submit"
-        onClick={() => {
-          searchInput.length > 0
-            ? setFilteredSearchPage(maxPage)
-            : navigate(`/page/${maxPage}`);
-        }}
-      >
-        <MdLastPage style={{ color: "#FDF4FF", fontSize: "20px" }} />
-      </button>
-    </div>
+    </>
   );
 };
 

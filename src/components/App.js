@@ -75,20 +75,20 @@ const App = () => {
       ) : (
         <div className="appContainer" onKeyDown={handleKeyDown}>
           <SearchBar
-            searchInput={searchInput}
             maxPage={maxPage}
+            searchInput={searchInput}
             filteredSearchPage={filteredSearchPage}
-            setSearchInput={setSearchInput}
             setMaxPage={setMaxPage}
+            setSearchInput={setSearchInput}
             setFilteredResults={setFilteredResults}
             setFilteredSearchPage={setFilteredSearchPage}
           />
           <PokemonList
             pokemonPage={pokemonPage}
-            filteredSearchPage={filteredSearchPage}
             pokemonList={pokemonList}
             searchInput={searchInput}
             filteredResults={filteredResults}
+            filteredSearchPage={filteredSearchPage}
           />
         </div>
       )}
