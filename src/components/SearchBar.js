@@ -16,6 +16,19 @@ const SearchBar = ({
   setFilteredResults,
   setFilteredSearchPage,
 }) => {
+
+  //There are a few things that could be improved upon in this file. 
+  //The main point being that we should restrict the concerns of this component
+  //Ideally this component would be a search bar with two buttons on either side of it and nothing else
+  //Rather than pass through all seven props above we could just pass through the bits this component needs 
+  //to know about. 
+
+  //To put it a different way, this component shouldn't care about how it fetches data or navigates from page to page,
+  //instead we can just pass it a function for how it should respond when the user clicks on the button
+  //This allows us to segment all of this API logic into the App component. It's generally a good rule of thumb to keep all of the logic 
+  //around fetching data in a singlular spot so it's easier to reason about without switching between files like we have to in this case.
+
+
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
   const searchItems = (searchValue, filteredSearchPage) => {
@@ -71,6 +84,8 @@ const SearchBar = ({
             : parseInt(pokemonPage) === 1
             ? navigate("/page/1")
             : navigate(`/page/${parseInt(pokemonPage) - 1}`);
+            //This chunk with nested terneries is really challenging to read. Is there a way we can abstract it into the parent file
+            //and make it more consice? 
         }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
@@ -79,6 +94,7 @@ const SearchBar = ({
         Pokedéx
       </a>
       <div className="pokemon-searchBarContainer">
+        //This uses a mixture of css class structures between dashes and camel casing, it's a good rule of thumb to keep these consistent
         <button type="submit" className="searchButton">
           <FaSearch className="searchIcon" />
         </button>

@@ -22,6 +22,9 @@ const Welcome = () => {
           <div className="letterO letter animate">o</div>
           <div className="letterN letter animate">N</div>
           <div className="wordTM word animate">TM</div>
+          //A lot of these classes do not look like they are used anymore in your css files
+          //I think that letterP is the only one that is still utilized differently from the 
+          //rest with some margin top
         </div>
         <div className="pokemonBody">
           <img className="ashImg" src={asheImg} alt="ashImg"></img>
