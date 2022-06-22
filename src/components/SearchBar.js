@@ -17,10 +17,13 @@ const SearchBar = ({
 }) => {
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
-  const searchItems = (searchValue, filteredSearchPage) => {
+  const searchItems = (searchValue, filteredSearchPage, abortController) => {
     setSearchInput(searchValue);
     fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`,
+      {
+        signal: abortController.signal,
+      }
     )
       .then((res) => res.json())
       .then(({ data, meta }) => {
@@ -37,20 +40,24 @@ const SearchBar = ({
   }, []);
 
   useEffect(() => {
+    const abortController = new AbortController();
     if (filteredSearchPage === 1 && searchInput.length === 0) {
       return () => {
         debouncedSearch.cancel();
       };
     } else {
-      searchItems(searchInput, filteredSearchPage);
+      searchItems(searchInput, filteredSearchPage, abortController);
     }
+    return function cancel() {
+      abortController.abort();
+    };
     // eslint-disable-next-line
   }, [filteredSearchPage]);
 
   return (
     <div className="pokemon-selector">
       <button
-        className="navButtonFirst"
+        className="navButtonFirst navButton"
         type="submit"
         onClick={() => {
           searchInput.length > 0
@@ -61,7 +68,7 @@ const SearchBar = ({
         <MdFirstPage style={{ color: "#FDF4FF", fontSize: "20px" }} />
       </button>
       <button
-        className="navButtonLeft"
+        className="navButtonLeft navButton"
         type="submit"
         onClick={() => {
           searchInput.length > 0
@@ -90,14 +97,14 @@ const SearchBar = ({
         />
       </div>
       <button
-        className="navButtonRight"
+        className="navButtonRight navButton"
         type="submit"
         onClick={() => {
           searchInput.length > 0
             ? filteredSearchPage + 1 < maxPage
               ? setFilteredSearchPage(filteredSearchPage + 1)
               : setFilteredSearchPage(maxPage)
-            : parseInt(pokemonPage) + 1 < maxPage + 1
+            : parseInt(pokemonPage) + 1 < maxPage
             ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
             : navigate(`/page/${maxPage}`);
         }}
@@ -105,7 +112,7 @@ const SearchBar = ({
         <FaArrowRight style={{ color: "#FDF4FF" }} />
       </button>
       <button
-        className="navButtonLast"
+        className="navButtonLast navButton"
         type="submit"
         onClick={() => {
           searchInput.length > 0

@@ -16,14 +16,21 @@ function App() {
   const [maxPage, setMaxPage] = useState();
 
   useEffect(() => {
+    const abortController = new AbortController();
     fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
+      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`,
+      {
+        signal: abortController.signal,
+      }
     )
       .then((res) => res.json())
       .then(({ data, meta }) => {
         setPokemonList(data);
         setMaxPage(meta.last_page);
       });
+    return function cancel() {
+      abortController.abort();
+    };
     // eslint-disable-next-line
   }, [pokemonPage]);
 

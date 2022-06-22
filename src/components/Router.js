@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import App from "./App";
-import PokemonInfo from "./PokemonInfo";
 import Welcome from "./Welcome";
+import NotFound from "./NotFound";
+import PokemonInfo from "./PokemonInfo";
 function Router() {
   return (
     <>
@@ -10,6 +11,7 @@ function Router() {
         <Route path="/" element={<Welcome />} />
         <Route path="/page/:pokemonPage" element={<App />} />
         <Route path="/pokemonInfo/:pokemonId" element={<PokemonInfo />} />
+        <Route component={NotFound} />
       </Routes>
     </>
   );
