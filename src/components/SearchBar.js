@@ -80,7 +80,7 @@ const SearchBar = ({
       </a>
       <div className="pokemon-searchBarContainer">
         <button type="submit" className="searchButton">
-          <FaSearch style={{ fontSize: "20px", paddingLeft: "15px" }} />
+          <FaSearch className="searchIcon" />
         </button>
         <input
           className="pokemon-searchBar"

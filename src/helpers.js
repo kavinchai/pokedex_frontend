@@ -17,7 +17,12 @@ export const pokeTypeBgColor = (e) => {
   }
 };
 
-export const formatText = (e) => {
-  return e.replace(/[0-9]/g, "").replace("-", " ");
+export const formatText = (text) => {
+  return text.replace(/[0-9]/g, "").replace("-", " ");
 };
+
+export const calcPercent = (num, denom) => {
+  return (num / denom) * 100;
+};
+
 export const URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon";

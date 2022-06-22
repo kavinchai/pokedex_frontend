@@ -48,6 +48,7 @@ const App = () => {
             setFilteredSearchPage={setFilteredSearchPage}
           />
           <PokemonList
+            pokemonPage={pokemonPage}
             pokemonList={pokemonList}
             searchInput={searchInput}
             filteredResults={filteredResults}

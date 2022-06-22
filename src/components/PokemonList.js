@@ -2,16 +2,29 @@ import React from "react";
 import PokemonCard from "./PokemonCard";
 import "../css/PokemonList.css";
 
-const PokemonList = ({ pokemonList, searchInput, filteredResults }) => {
+const PokemonList = ({
+  pokemonPage,
+  pokemonList,
+  searchInput,
+  filteredResults,
+}) => {
   return (
     <div className="pokemonListContainer">
       <div className="pokemonData">
         {searchInput.length > 0
-          ? filteredResults.map((key, index) => (
-              <PokemonCard key={index} identity={index} details={key} />
+          ? filteredResults.map((details, index) => (
+              <PokemonCard
+                key={`${pokemonPage} ${index}`}
+                identity={index}
+                details={details}
+              />
             ))
-          : pokemonList.map((key, index) => (
-              <PokemonCard key={index} identity={index} details={key} />
+          : pokemonList.map((details, index) => (
+              <PokemonCard
+                key={`${pokemonPage} ${index}`}
+                identity={index}
+                details={details}
+              />
             ))}
       </div>
     </div>

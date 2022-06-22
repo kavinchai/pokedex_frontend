@@ -16,6 +16,7 @@
 
 .pokeNameContainer {
   display: flex;
+  flex: none;
   flex-direction: row;
   align-items: flex-start;
   padding: 16px 16px 8px;
@@ -23,11 +24,8 @@
   position: relative;
   width: auto;
   height: 30px;
-
-  flex: none;
-
-  /* background-color: green; */
   align-self: stretch;
+  /* background-color: green; */
 }
 
 .pokeName {
@@ -46,16 +44,15 @@
 .pokeImgContainer {
   position: relative;
   text-align: center;
-  /* background-color: yellow; */
   width: 100%;
   height: 100%;
+  /* background-color: yellow; */
 }
 .pokeImg {
   width: auto;
   height: 100%;
-  /* background-color: red; */
-
   align-items: center;
+  /* background-color: red; */
 }
 
 .pokeTypeContainer {
@@ -83,15 +80,15 @@
 
 .pokemonContainer {
   transform: scale(0);
-  animation: wave 0.5s linear;
   animation-name: wave;
-  animation-duration: 0.5s;
+  animation-duration: 0.4s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
 .pokemonContainer:hover {
+  animation-fill-mode: none;
   transform: scale(1.1);
   background-color: #f1d6f8;
   border: 1px solid #c99cd4;
