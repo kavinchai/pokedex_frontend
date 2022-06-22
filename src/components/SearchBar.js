@@ -3,6 +3,7 @@ import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { debounce } from "lodash";
+import { URL } from "../helpers";
 import "../css/SearchBar.css";
 import "../fonts/PokemonSolid.ttf";
 
@@ -17,14 +18,9 @@ const SearchBar = ({
 }) => {
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
-  const searchItems = (searchValue, filteredSearchPage, abortController) => {
+  const searchItems = (searchValue, filteredSearchPage) => {
     setSearchInput(searchValue);
-    fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchValue}&page=${filteredSearchPage}`,
-      {
-        signal: abortController.signal,
-      }
-    )
+    fetch(`${URL}?name=${searchValue}&page=${filteredSearchPage}`)
       .then((res) => res.json())
       .then(({ data, meta }) => {
         setFilteredResults(data);
@@ -40,17 +36,14 @@ const SearchBar = ({
   }, []);
 
   useEffect(() => {
-    const abortController = new AbortController();
     if (filteredSearchPage === 1 && searchInput.length === 0) {
       return () => {
         debouncedSearch.cancel();
       };
     } else {
-      searchItems(searchInput, filteredSearchPage, abortController);
+      searchItems(searchInput, filteredSearchPage);
     }
-    return function cancel() {
-      abortController.abort();
-    };
+
     // eslint-disable-next-line
   }, [filteredSearchPage]);
 

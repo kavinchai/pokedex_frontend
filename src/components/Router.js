@@ -4,7 +4,7 @@ import App from "./App";
 import Welcome from "./Welcome";
 import NotFound from "./NotFound";
 import PokemonInfo from "./PokemonInfo";
-function Router() {
+const Router = () => {
   return (
     <>
       <Routes>
@@ -15,6 +15,6 @@ function Router() {
       </Routes>
     </>
   );
-}
+};
 
 export default Router;

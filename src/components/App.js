@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { URL } from "../helpers";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
 import LoadingPage from "./LoadingPage";
@@ -7,7 +8,7 @@ import LoadingPage from "./LoadingPage";
 import "typeface-roboto";
 import "../css/MainScreen.css";
 
-function App() {
+const App = () => {
   const { pokemonPage } = useParams();
   const [searchInput, setSearchInput] = useState("");
   const [pokemonList, setPokemonList] = useState(null);
@@ -17,12 +18,9 @@ function App() {
 
   useEffect(() => {
     const abortController = new AbortController();
-    fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`,
-      {
-        signal: abortController.signal,
-      }
-    )
+    fetch(`${URL}?page=${pokemonPage}`, {
+      signal: abortController.signal,
+    })
       .then((res) => res.json())
       .then(({ data, meta }) => {
         setPokemonList(data);
@@ -58,6 +56,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

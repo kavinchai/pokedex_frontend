@@ -2,7 +2,7 @@ import React from "react";
 import pokeballImg from "../contents/gif/pokeball.gif";
 
 import "../css/LoadingPage.css";
-function LoadingPage() {
+const LoadingPage = () => {
   return (
     <div className="loadingPageContainer">
       <div className="loadingBody">
@@ -10,6 +10,6 @@ function LoadingPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LoadingPage;
