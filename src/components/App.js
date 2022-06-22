@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { URL } from "../helpers";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
@@ -9,12 +9,48 @@ import "typeface-roboto";
 import "../css/MainScreen.css";
 
 const App = () => {
+  const navigate = useNavigate();
   const { pokemonPage } = useParams();
   const [searchInput, setSearchInput] = useState("");
   const [pokemonList, setPokemonList] = useState(null);
   const [filteredResults, setFilteredResults] = useState([]);
   const [filteredSearchPage, setFilteredSearchPage] = useState(1);
   const [maxPage, setMaxPage] = useState();
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 37) {
+      // Left arrow
+      if (searchInput.length > 0) {
+        if (filteredSearchPage === 1) {
+          setFilteredSearchPage(1);
+        } else {
+          setFilteredSearchPage(filteredSearchPage - 1);
+        }
+      } else {
+        if (parseInt(pokemonPage) === 1) {
+          navigate("/page/1");
+        } else {
+          navigate(`/page/${parseInt(pokemonPage) - 1}`);
+        }
+      }
+    }
+    if (e.keyCode === 39) {
+      // Right arrow
+      if (searchInput.length > 0) {
+        if (filteredSearchPage + 1 < maxPage) {
+          setFilteredSearchPage(filteredSearchPage + 1);
+        } else {
+          setFilteredSearchPage(maxPage);
+        }
+      } else {
+        if (parseInt(pokemonPage) + 1 < maxPage) {
+          navigate(`/page/${parseInt(pokemonPage) + 1}`);
+        } else {
+          navigate(`/page/${maxPage}`);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -37,7 +73,7 @@ const App = () => {
       {pokemonList === null ? (
         <LoadingPage />
       ) : (
-        <div className="appContainer">
+        <div className="appContainer" onKeyDown={handleKeyDown}>
           <SearchBar
             searchInput={searchInput}
             maxPage={maxPage}
@@ -49,6 +85,7 @@ const App = () => {
           />
           <PokemonList
             pokemonPage={pokemonPage}
+            filteredSearchPage={filteredSearchPage}
             pokemonList={pokemonList}
             searchInput={searchInput}
             filteredResults={filteredResults}
