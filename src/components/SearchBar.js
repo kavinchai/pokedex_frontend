@@ -8,10 +8,10 @@ import "../fonts/PokemonSolid.ttf";
 
 const SearchBar = ({
   searchInput,
-  filteredMaxPage,
+  maxPage,
   filteredSearchPage,
   setSearchInput,
-  setFilteredMaxPage,
+  setMaxPage,
   setFilteredResults,
   setFilteredSearchPage,
 }) => {
@@ -25,7 +25,7 @@ const SearchBar = ({
       .then((res) => res.json())
       .then(({ data, meta }) => {
         setFilteredResults(data);
-        setFilteredMaxPage(meta.last_page);
+        setMaxPage(meta.last_page);
       });
   };
 
@@ -94,12 +94,12 @@ const SearchBar = ({
         type="submit"
         onClick={() => {
           searchInput.length > 0
-            ? filteredSearchPage + 1 < filteredMaxPage
+            ? filteredSearchPage + 1 < maxPage
               ? setFilteredSearchPage(filteredSearchPage + 1)
-              : setFilteredSearchPage(filteredMaxPage)
-            : parseInt(pokemonPage) + 1 < 38
+              : setFilteredSearchPage(maxPage)
+            : parseInt(pokemonPage) + 1 < maxPage + 1
             ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
-            : navigate("/page/37");
+            : navigate(`/page/${maxPage}`);
         }}
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />
@@ -109,8 +109,8 @@ const SearchBar = ({
         type="submit"
         onClick={() => {
           searchInput.length > 0
-            ? setFilteredSearchPage(filteredMaxPage)
-            : navigate("/page/37");
+            ? setFilteredSearchPage(maxPage)
+            : navigate(`/page/${maxPage}`);
         }}
       >
         <MdLastPage style={{ color: "#FDF4FF", fontSize: "20px" }} />

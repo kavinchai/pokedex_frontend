@@ -13,15 +13,16 @@ function App() {
   const [pokemonList, setPokemonList] = useState(null);
   const [filteredResults, setFilteredResults] = useState([]);
   const [filteredSearchPage, setFilteredSearchPage] = useState(1);
-  const [filteredMaxPage, setFilteredMaxPage] = useState();
+  const [maxPage, setMaxPage] = useState();
 
   useEffect(() => {
     fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon?page=${pokemonPage}`
     )
       .then((res) => res.json())
-      .then(({ data }) => {
+      .then(({ data, meta }) => {
         setPokemonList(data);
+        setMaxPage(meta.last_page);
       });
     // eslint-disable-next-line
   }, [pokemonPage]);
@@ -34,10 +35,10 @@ function App() {
         <div className="appContainer">
           <SearchBar
             searchInput={searchInput}
-            filteredMaxPage={filteredMaxPage}
+            maxPage={maxPage}
             filteredSearchPage={filteredSearchPage}
             setSearchInput={setSearchInput}
-            setFilteredMaxPage={setFilteredMaxPage}
+            setMaxPage={setMaxPage}
             setFilteredResults={setFilteredResults}
             setFilteredSearchPage={setFilteredSearchPage}
           />

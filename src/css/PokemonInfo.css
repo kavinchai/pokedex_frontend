@@ -44,6 +44,10 @@
   mix-blend-mode: normal;
 }
 
+.navButtonHome:hover {
+  cursor: pointer;
+}
+
 .pokeInfoBody {
   /* height: 100%; */
 }
