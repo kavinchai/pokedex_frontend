@@ -13,12 +13,12 @@
   letter-spacing: 0.1px;
 }
 
-.statBar-hp,
-.statBar-speed,
-.statBar-attack,
-.statBar-defense,
-.statBar-special-attack,
-.statBar-special-defense {
+.statBarHp,
+.statBarSpeed,
+.statBarAttack,
+.statBarDefense,
+.statBarSpecial-attack,
+.statBarSpecial-defense {
   margin-bottom: 24px;
   color: white;
   position: relative;

@@ -1,52 +1,22 @@
-import React, { useMemo, useEffect, useState } from "react";
+import React, { useState } from "react";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MdFirstPage, MdLastPage } from "react-icons/md";
-import { useParams, useNavigate } from "react-router-dom";
-import { debounce } from "lodash";
-import { URL } from "../helpers";
+import { useNavigate } from "react-router-dom";
+import "lodash";
 import "../css/SearchBar.css";
 import "../fonts/PokemonSolid.ttf";
 
 const SearchBar = ({
-  maxPage,
+  lastPage,
   searchInput,
-  filteredSearchPage,
-  setMaxPage,
-  setSearchInput,
-  setFilteredResults,
+  leftPageBtnFunc,
+  rightPageBtnFunc,
+  debouncedSearch,
   setFilteredSearchPage,
 }) => {
   const [showFilter, setShowFilter] = useState(false);
   const navigate = useNavigate();
-  const { pokemonPage } = useParams();
-  const searchItems = (searchValue, filteredSearchPage) => {
-    setSearchInput(searchValue);
-    fetch(`${URL}?name=${searchValue}&page=${filteredSearchPage}`)
-      .then((res) => res.json())
-      .then(({ data, meta }) => {
-        setFilteredResults(data);
-        setMaxPage(meta.last_page);
-      });
-  };
-
-  const debouncedSearch = useMemo(() => {
-    return debounce((e) => {
-      searchItems(e.target.value, filteredSearchPage);
-    }, 300);
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    if (filteredSearchPage === 1 && searchInput.length === 0) {
-      return () => {
-        debouncedSearch.cancel();
-      };
-    } else {
-      searchItems(searchInput, filteredSearchPage);
-    }
-
-    // eslint-disable-next-line
-  }, [filteredSearchPage]);
 
   return (
     <>
@@ -65,15 +35,7 @@ const SearchBar = ({
         <button
           className="navButtonLeft navBtn"
           type="submit"
-          onClick={() => {
-            searchInput.length > 0
-              ? filteredSearchPage === 1
-                ? setFilteredSearchPage(1)
-                : setFilteredSearchPage(filteredSearchPage - 1)
-              : parseInt(pokemonPage) === 1
-              ? navigate("/page/1")
-              : navigate(`/page/${parseInt(pokemonPage) - 1}`);
-          }}
+          onClick={leftPageBtnFunc}
         >
           <FaArrowLeft />
         </button>
@@ -98,15 +60,7 @@ const SearchBar = ({
         <button
           className="navButtonRight navBtn"
           type="submit"
-          onClick={() => {
-            searchInput.length > 0
-              ? filteredSearchPage + 1 < maxPage
-                ? setFilteredSearchPage(filteredSearchPage + 1)
-                : setFilteredSearchPage(maxPage)
-              : parseInt(pokemonPage) + 1 < maxPage
-              ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
-              : navigate(`/page/${maxPage}`);
-          }}
+          onClick={rightPageBtnFunc}
         >
           <FaArrowRight />
         </button>
@@ -115,8 +69,8 @@ const SearchBar = ({
           type="submit"
           onClick={() => {
             searchInput.length > 0
-              ? setFilteredSearchPage(maxPage)
-              : navigate(`/page/${maxPage}`);
+              ? setFilteredSearchPage(lastPage)
+              : navigate(`/page/${lastPage}`);
           }}
         >
           <MdLastPage style={{ fontSize: "20px" }} />

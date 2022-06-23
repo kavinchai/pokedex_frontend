@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { debounce } from "lodash";
 import { URL } from "../helpers";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
@@ -15,41 +16,16 @@ const App = () => {
   const [pokemonList, setPokemonList] = useState(null);
   const [filteredResults, setFilteredResults] = useState([]);
   const [filteredSearchPage, setFilteredSearchPage] = useState(1);
-  const [maxPage, setMaxPage] = useState();
+  const [lastPage, setLastPage] = useState();
 
-  const handleKeyDown = (e) => {
-    if (e.keyCode === 37) {
-      // Left arrow
-      if (searchInput.length > 0) {
-        if (filteredSearchPage === 1) {
-          setFilteredSearchPage(1);
-        } else {
-          setFilteredSearchPage(filteredSearchPage - 1);
-        }
-      } else {
-        if (parseInt(pokemonPage) === 1) {
-          navigate("/page/1");
-        } else {
-          navigate(`/page/${parseInt(pokemonPage) - 1}`);
-        }
-      }
-    }
-    if (e.keyCode === 39) {
-      // Right arrow
-      if (searchInput.length > 0) {
-        if (filteredSearchPage + 1 < maxPage) {
-          setFilteredSearchPage(filteredSearchPage + 1);
-        } else {
-          setFilteredSearchPage(maxPage);
-        }
-      } else {
-        if (parseInt(pokemonPage) + 1 < maxPage) {
-          navigate(`/page/${parseInt(pokemonPage) + 1}`);
-        } else {
-          navigate(`/page/${maxPage}`);
-        }
-      }
-    }
+  const searchItems = (searchValue, filteredSearchPage) => {
+    setSearchInput(searchValue);
+    fetch(`${URL}?name=${searchValue}&page=${filteredSearchPage}`)
+      .then((res) => res.json())
+      .then(({ data, meta }) => {
+        setFilteredResults(data);
+        setLastPage(meta.last_page);
+      });
   };
 
   useEffect(() => {
@@ -60,13 +36,85 @@ const App = () => {
       .then((res) => res.json())
       .then(({ data, meta }) => {
         setPokemonList(data);
-        setMaxPage(meta.last_page);
+        setLastPage(meta.last_page);
       });
     return function cancel() {
       abortController.abort();
     };
     // eslint-disable-next-line
   }, [pokemonPage]);
+
+  useEffect(() => {
+    if (filteredSearchPage === 1 && searchInput.length === 0) {
+      return () => {
+        debouncedSearch.cancel();
+      };
+    } else {
+      searchItems(searchInput, filteredSearchPage);
+    }
+
+    // eslint-disable-next-line
+  }, [filteredSearchPage]);
+
+  const debouncedSearch = useMemo(() => {
+    return debounce((e) => {
+      searchItems(e.target.value, filteredSearchPage);
+    }, 300);
+    // eslint-disable-next-line
+  }, []);
+
+  const leftPageBtnFunc = () => {
+    if (searchInput.length > 0) {
+      if (filteredSearchPage === 1) {
+        setFilteredSearchPage(1);
+      } else {
+        setFilteredSearchPage(filteredSearchPage - 1);
+      }
+    } else {
+      if (parseInt(pokemonPage) === 1) {
+        navigate("/page/1");
+      } else {
+        navigate(`/page/${parseInt(pokemonPage) - 1}`);
+      }
+    }
+  };
+
+  const rightPageBtnFunc = () => {
+    if (searchInput.length > 0) {
+      if (filteredSearchPage + 1 < lastPage) {
+        setFilteredSearchPage(filteredSearchPage + 1);
+      } else {
+        setFilteredSearchPage(lastPage);
+      }
+    } else {
+      if (parseInt(pokemonPage) + 1 < lastPage) {
+        navigate(`/page/${parseInt(pokemonPage) + 1}`);
+      } else {
+        navigate(`/page/${lastPage}`);
+      }
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 37) {
+      // Left arrow
+      leftPageBtnFunc({
+        searchInput,
+        filteredSearchPage,
+        setFilteredSearchPage,
+        pokemonPage,
+      });
+    }
+    if (e.keyCode === 39) {
+      // Right arrow
+      rightPageBtnFunc({
+        searchInput,
+        filteredSearchPage,
+        setFilteredSearchPage,
+        pokemonPage,
+      });
+    }
+  };
 
   return (
     <div className="mainContainer">
@@ -75,12 +123,13 @@ const App = () => {
       ) : (
         <div className="appContainer" onKeyDown={handleKeyDown}>
           <SearchBar
-            maxPage={maxPage}
+            lastPage={lastPage}
             searchInput={searchInput}
             filteredSearchPage={filteredSearchPage}
-            setMaxPage={setMaxPage}
-            setSearchInput={setSearchInput}
-            setFilteredResults={setFilteredResults}
+            searchItems={searchItems}
+            leftPageBtnFunc={leftPageBtnFunc}
+            rightPageBtnFunc={rightPageBtnFunc}
+            debouncedSearch={debouncedSearch}
             setFilteredSearchPage={setFilteredSearchPage}
           />
           <PokemonList

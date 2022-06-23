@@ -1,24 +1,15 @@
 import React from "react";
-import { pokeTypeBgColor, calcPercent } from "../helpers";
+import { pokeTypeBgColor, calcPercent, capitalizeFirst } from "../helpers";
 import "../css/PokemonInfoStat.css";
 
 const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
-  const highestStat = (specificStat) => {
-    let maxStatVal;
-    if (specificStat === "hp") {
-      maxStatVal = 255;
-    } else if (specificStat === "attack") {
-      maxStatVal = 160;
-    } else if (specificStat === "defense") {
-      maxStatVal = 200;
-    } else if (specificStat === "speed") {
-      maxStatVal = 150;
-    } else if (specificStat === "special-attack") {
-      maxStatVal = 154;
-    } else if (specificStat === "special-defense") {
-      maxStatVal = 230;
-    }
-    return maxStatVal;
+  const highestStat = {
+    hp: 255,
+    attack: 160,
+    defense: 200,
+    speed: 150,
+    "special-attack": 154,
+    "special-defense": 230,
   };
   return (
     <>
@@ -26,17 +17,17 @@ const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
         className={`fullBar ${pokeTypeBgColor(pokemonInfo.types)}BgColor`}
       ></div>
       <div
-        className={`statBar-${specificStat} ${pokeTypeBgColor(
+        className={`statBar${capitalizeFirst(specificStat)} ${pokeTypeBgColor(
           pokemonInfo.types
         )}BgColor`}
         style={{
           width: `${calcPercent(
-            pokemonInfo.stats[`${specificStat}`],
-            highestStat(specificStat)
+            pokemonInfo.stats[specificStat],
+            highestStat[specificStat]
           )}%`,
         }}
       >
-        {pokemonInfo.stats[`${specificStat}`]}
+        {pokemonInfo.stats[specificStat]}
       </div>
     </>
   );

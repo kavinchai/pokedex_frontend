@@ -25,4 +25,12 @@ export const calcPercent = (num, denom) => {
   return (num / denom) * 100;
 };
 
+export const capitalizeFirst = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+  // for (let i = 0; i < words.length; i++) {
+  //   words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+  // }
+  // return words;
+};
+
 export const URL = "https://intern-pokedex.myriadapps.com/api/v1/pokemon";

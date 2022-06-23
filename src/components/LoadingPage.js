@@ -6,7 +6,7 @@ const LoadingPage = () => {
   return (
     <div className="loadingPageContainer">
       <div className="loadingBody">
-        <img className="pokeballProp" src={pokeballImg} alt="pokeballGif"></img>
+        <img className="pokeballProp" src={pokeballImg} alt="pokeballGif" />
       </div>
     </div>
   );

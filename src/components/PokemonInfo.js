@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { formatText } from "../helpers";
 import PokemonInfoStat from "./PokemonInfoStat";
 import LoadingPage from "./LoadingPage";
+import Type from "./Type";
 import "../css/PokemonInfo.css";
 
 const PokemonInfo = () => {
@@ -58,11 +59,7 @@ const PokemonInfo = () => {
                 <div className="pokemonCardId">{`#${pokemonInfo.id}`}</div>
                 <div className="blankSpace"></div>
                 <div className="pokemonCardTypes">
-                  {pokemonInfo.types.map((type, index) => (
-                    <div key={index} className={`${type}Type typeContainer`}>
-                      {type}
-                    </div>
-                  ))}
+                  <Type types={pokemonInfo.types} />
                 </div>
               </div>
               <div className="line"></div>
@@ -72,7 +69,7 @@ const PokemonInfo = () => {
                     src={pokemonInfo.image}
                     alt={pokemonInfo.name}
                     className="statsChildImg"
-                  ></img>
+                  />
                 </div>
                 <div className="statsChild Right">
                   <div className="statTextContainer">
