@@ -8,6 +8,7 @@ const LoadingPage = () => {
       <div className="loadingBody">
         <img className="pokeballProp" src={pokeballImg} alt="pokeballGif"></img>
       </div>
+      {/* Love the loading gif and attention to detail here */}
     </div>
   );
 };

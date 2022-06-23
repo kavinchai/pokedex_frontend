@@ -12,6 +12,7 @@ const Welcome = () => {
         onKeyDown={() => {
           window.location.href = "/page/1";
         }}
+        //We could use react router navigation here instead of window.location.href
       >
         <div className="pokemonHeadAnimation">
           <div className="letterP letter animate">P</div>

@@ -19,14 +19,16 @@ const SearchBar = ({
 
   //There are a few things that could be improved upon in this file. 
   //The main point being that we should restrict the concerns of this component
-  //Ideally this component would be a search bar with two buttons on either side of it and nothing else
-  //Rather than pass through all seven props above we could just pass through the bits this component needs 
-  //to know about. 
+  //Ideally this component would be a search bar with two buttons on either side 
+  //of it and nothing else. Rather than pass through all seven props above we could 
+  //just pass through the bits this component needs to know about. 
 
-  //To put it a different way, this component shouldn't care about how it fetches data or navigates from page to page,
-  //instead we can just pass it a function for how it should respond when the user clicks on the button
-  //This allows us to segment all of this API logic into the App component. It's generally a good rule of thumb to keep all of the logic 
-  //around fetching data in a singlular spot so it's easier to reason about without switching between files like we have to in this case.
+  //To put it a different way, this component shouldn't care about how it fetches data 
+  //or navigates from page to page, instead we can just pass it a function for how it should 
+  //respond when the user clicks on the button. This allows us to segment all of this API logic 
+  //into the App component. It's generally a good rule of thumb to keep all of the logic 
+  //around fetching data in a singlular spot so it's easier to reason about without 
+  //switching between files like we have to in this case.
 
 
   const navigate = useNavigate();
@@ -39,6 +41,9 @@ const SearchBar = ({
         setFilteredResults(data);
         setMaxPage(meta.last_page);
       });
+      //Again, I think all of this information could live in App.js
+      //since both locations are hitting the same URL it would be better to keep
+      //all of this logic consolidated in the same location
   };
 
   const debouncedSearch = useMemo(() => {
@@ -84,8 +89,9 @@ const SearchBar = ({
             : parseInt(pokemonPage) === 1
             ? navigate("/page/1")
             : navigate(`/page/${parseInt(pokemonPage) - 1}`);
-            //This chunk with nested terneries is really challenging to read. Is there a way we can abstract it into the parent file
-            //and make it more consice? 
+            //This chunk with nested terneries is really challenging to read. 
+            //Like I mentioned in above comments I think this logic could live on the parent
+            //and be refactored into a way that's a bit more readable 
         }}
       >
         <FaArrowLeft style={{ color: "#FDF4FF" }} />
@@ -94,7 +100,10 @@ const SearchBar = ({
         Pokedéx
       </a>
       <div className="pokemon-searchBarContainer">
-        //This uses a mixture of css class structures between dashes and camel casing, it's a good rule of thumb to keep these consistent
+        {/*
+        //This uses a mixture of css class structures between dashes and camel casing, 
+        //it's a good rule of thumb to keep these consistent
+        */}
         <button type="submit" className="searchButton">
           <FaSearch className="searchIcon" />
         </button>
@@ -117,6 +126,9 @@ const SearchBar = ({
             ? navigate(`/page/${parseInt(pokemonPage) + 1}`)
             : navigate(`/page/${maxPage}`);
         }}
+        //Just like my previous comment, components like this one should know about the bare minimum
+        //amount of information to be functional. This onClick handler could take a singular function "lastPage"
+        //or something similar that way it doesn't have to know about what page the user is on
       >
         <FaArrowRight style={{ color: "#FDF4FF" }} />
       </button>
@@ -128,8 +140,14 @@ const SearchBar = ({
             ? setFilteredSearchPage(maxPage)
             : navigate(`/page/${maxPage}`);
         }}
+        //Just like the other examples I would prefer to see this on the parent component
       >
         <MdLastPage style={{ color: "#FDF4FF", fontSize: "20px" }} />
+        {/*
+          //This is a bit overkill for your current app, but I just wanted to highlight that
+          //when a color is used repeatedly like this, it could be abstracted to a constant
+          //no need to change it here as you'll be adding chakra and refactoring the styles shortly
+        */}
       </button>
     </div>
   );

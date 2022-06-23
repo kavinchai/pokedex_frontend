@@ -11,6 +11,8 @@ const PokemonInfo = () => {
   let navigate = useNavigate();
   const { pokemonId } = useParams(); // Get pokemon id from link
   const [pokemonInfo, setPokemonInfo] = useState(null);
+  //Rather than null here it would be better to have this set as an object since that what
+  //it's being set to in the useEffect below
   useEffect(() => {
     fetch(`https://intern-pokedex.myriadapps.com/api/v1/pokemon/${pokemonId}`)
       .then((res) => res.json())
@@ -19,11 +21,16 @@ const PokemonInfo = () => {
       });
     // eslint-disable-next-line
   });
+  //This use effect should have an empty array at the end of it to indicate that no 
+  //parameters are being watched. Though this does the same thing it is good practice 
+  //to indicate that nothing is changing
 
   return (
     <>
       {pokemonInfo === null ? (
         <LoadingPage />
+        //Rather than null here, you could check that pokemonInfo is any "falsy" value
+        //and just do {pokemonInfo ? ( <Content/> : <LoadingPage/>; )}
       ) : (
         <div
           className={`pokeInfoContainer ${pokeTypeBgColor(
@@ -62,6 +69,8 @@ const PokemonInfo = () => {
                     <div key={index} className={`${type}Type typeContainer`}>
                       {type}
                     </div>
+                    //I've seen this in multiple locations now, rather than duplicate the logic in both 
+                    //places, we could have a <Type/> component that we display when we map over these types
                   ))}
                 </div>
               </div>
@@ -89,6 +98,7 @@ const PokemonInfo = () => {
                     <PokemonInfoStat
                       pokemonInfo={pokemonInfo}
                       specificStat={"hp"}
+                      //Minor thing here, you don't need to wrap the "hp" string in brackets
                     />
                     <PokemonInfoStat
                       pokemonInfo={pokemonInfo}
@@ -149,6 +159,9 @@ const PokemonInfo = () => {
                             ? formatText(egg_group)
                             : `${formatText(egg_group)},`}
                         </div>
+                        //I think I mentioned this over in Brian's first review, but to add commas 
+                        //like this you should be able to use Array.join to pull all of these
+                        //together and add a comma between each one
                       ))}
                     </div>
                     <div className="statDiv abilityDiv">
@@ -161,6 +174,7 @@ const PokemonInfo = () => {
                             ? formatText(ability)
                             : `${formatText(ability)},`}
                         </div>
+                        //Just like above, we can use Array.join here instead
                       ))}
                     </div>
                   </div>

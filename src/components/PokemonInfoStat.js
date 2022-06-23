@@ -20,6 +20,20 @@ const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
     }
     return maxStatVal;
   };
+
+  //Instead of a conditional like this we could make an object with all of these 
+  //maxStat definitions. 
+  // {
+  //   attack: 160,
+  //   hp: 255, 
+  //   ...
+  // }
+  //
+  // You can then get the value in your code below doing something like this:
+  // 
+  // maxStats[specificStat]
+
+
   return (
     <>
       <div

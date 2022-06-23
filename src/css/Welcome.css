@@ -59,6 +59,10 @@
   }
 }
 
+/* Nice use of the animations and key frames here, this is 
+a really nice addition and small details like this are really 
+nice for the end users! */ 
+
 .pokemonBody {
   position: relative;
   display: flex;
@@ -93,3 +97,16 @@
     opacity: 0;
   }
 }
+
+/*
+I'm adding a comment here, even though this comment is applicable for the entire 
+project. I don't see many (if any) uses of nesting and grouping in CSS selectors
+I don't think we've brought this up in any of the Pokedexes yet, but its a core
+idea of how CSS works and I would highly recommend reading about it and experimenting
+with it in your projects
+
+https://sabe.io/classes/css/grouping-nesting-selectors
+
+It's extremely useful for structuring and CSS and reduces the likelihood of 
+causing classes to conflict with one another
+*/
