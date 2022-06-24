@@ -13,14 +13,18 @@ const App = () => {
   const { pokemonPage } = useParams();
   const [searchInput, setSearchInput] = useState("");
   const [pokemonList, setPokemonList] = useState(null);
+
   //Pokemon list is later set to using an array, so rather than null here we can instantiate 
   //pokemon list with an empty arrary, just like filteredResults below
+  
   const [filteredResults, setFilteredResults] = useState([]);
+
   //Filtered results and pokemon list should not be two separate state variables. Both are a list of pokemon
   //that is returned from the exact same endpoint. The pokemon list shouldn't care that the list is filtered or not
   //all it should care about is that it takes a list of pokemon and displays it.
   //Keeping two separate lists like this also is harder to manage since you have to keep two things in sync
   //and is more challenging to understand what's going on in the app
+
   const [filteredSearchPage, setFilteredSearchPage] = useState(1);
   const [maxPage, setMaxPage] = useState();
 

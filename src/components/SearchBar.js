@@ -30,7 +30,6 @@ const SearchBar = ({
   //around fetching data in a singlular spot so it's easier to reason about without 
   //switching between files like we have to in this case.
 
-
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
   const searchItems = (searchValue, filteredSearchPage) => {
@@ -61,7 +60,6 @@ const SearchBar = ({
     } else {
       searchItems(searchInput, filteredSearchPage);
     }
-
     // eslint-disable-next-line
   }, [filteredSearchPage]);
 

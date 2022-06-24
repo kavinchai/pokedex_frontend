@@ -51,6 +51,7 @@ const PokemonInfoStat = ({ pokemonInfo, specificStat }) => {
         }}
       >
         {pokemonInfo.stats[`${specificStat}`]}
+        //Redundant string interpolation
       </div>
     </>
   );
