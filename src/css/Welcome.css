@@ -26,13 +26,13 @@
   font-size: 200px;
 }
 
-.letter {
+.letterClass {
   color: rgb(251, 215, 90);
   position: relative;
   -webkit-text-stroke: 10px rgb(52, 118, 189);
 }
 
-.word {
+.wordClass {
   font-family: "slkscr";
   font-style: normal;
   font-size: 30px;

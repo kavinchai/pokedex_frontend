@@ -48,10 +48,6 @@
   cursor: pointer;
 }
 
-.pokeInfoBody {
-  /* height: 100%; */
-}
-
 .pokemonCard {
   display: flex;
   flex-direction: column;

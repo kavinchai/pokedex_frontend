@@ -13,7 +13,7 @@ const App = () => {
   const navigate = useNavigate();
   const { pokemonPage } = useParams();
   const [searchInput, setSearchInput] = useState("");
-  const [pokemonList, setPokemonList] = useState(null);
+  const [pokemonList, setPokemonList] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [filteredSearchPage, setFilteredSearchPage] = useState(1);
   const [lastPage, setLastPage] = useState();
@@ -98,29 +98,17 @@ const App = () => {
   const handleKeyDown = (e) => {
     if (e.keyCode === 37) {
       // Left arrow
-      leftPageBtnFunc({
-        searchInput,
-        filteredSearchPage,
-        setFilteredSearchPage,
-        pokemonPage,
-      });
+      leftPageBtnFunc();
     }
     if (e.keyCode === 39) {
       // Right arrow
-      rightPageBtnFunc({
-        searchInput,
-        filteredSearchPage,
-        setFilteredSearchPage,
-        pokemonPage,
-      });
+      rightPageBtnFunc();
     }
   };
 
   return (
     <div className="mainContainer">
-      {pokemonList === null ? (
-        <LoadingPage />
-      ) : (
+      {pokemonList ? (
         <div className="appContainer" onKeyDown={handleKeyDown}>
           <SearchBar
             lastPage={lastPage}
@@ -140,6 +128,8 @@ const App = () => {
             filteredSearchPage={filteredSearchPage}
           />
         </div>
+      ) : (
+        <LoadingPage />
       )}
     </div>
   );

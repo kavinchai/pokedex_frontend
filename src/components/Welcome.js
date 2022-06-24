@@ -14,14 +14,14 @@ const Welcome = () => {
         }}
       >
         <div className="pokemonHeadAnimation">
-          <div className="letterP letter animate">P</div>
-          <div className="letterO letter animate">o</div>
-          <div className="letterK letter animate">K</div>
-          <div className="letterE letter animate">é</div>
-          <div className="letterM letter animate">M</div>
-          <div className="letterO letter animate">o</div>
-          <div className="letterN letter animate">N</div>
-          <div className="wordTM word animate">TM</div>
+          <div className="letterP letterClass animate">P</div>
+          <div className="letterO letterClass animate">o</div>
+          <div className="letterK letterClass animate">K</div>
+          <div className="letterE letterClass animate">é</div>
+          <div className="letterM letterClass animate">M</div>
+          <div className="letterO letterClass animate">o</div>
+          <div className="letterN letterClass animate">N</div>
+          <div className="wordTM wordClass animate">TM</div>
         </div>
         <div className="pokemonBody">
           <img className="ashImg" src={asheImg} alt="ashImg" />

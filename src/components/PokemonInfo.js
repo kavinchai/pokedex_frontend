@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { pokeTypeBgColor } from "../helpers";
 import { FaArrowLeft } from "react-icons/fa";
-import { formatText } from "../helpers";
+import { removeNumAndDash } from "../helpers";
 import PokemonInfoStat from "./PokemonInfoStat";
 import LoadingPage from "./LoadingPage";
 import Type from "./Type";
 import "../css/PokemonInfo.css";
 
 const PokemonInfo = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { pokemonId } = useParams(); // Get pokemon id from link
-  const [pokemonInfo, setPokemonInfo] = useState(null);
+  const [pokemonInfo, setPokemonInfo] = useState(0);
+
   useEffect(() => {
     fetch(`https://intern-pokedex.myriadapps.com/api/v1/pokemon/${pokemonId}`)
       .then((res) => res.json())
@@ -19,13 +20,11 @@ const PokemonInfo = () => {
         setPokemonInfo(data);
       });
     // eslint-disable-next-line
-  });
+  }, [pokemonId]);
 
   return (
     <>
-      {pokemonInfo === null ? (
-        <LoadingPage />
-      ) : (
+      {pokemonInfo ? (
         <div
           className={`pokeInfoContainer ${pokeTypeBgColor(
             pokemonInfo.types
@@ -137,28 +136,10 @@ const PokemonInfo = () => {
                   </div>
                   <div className="rightNumColStat">
                     <div className="statDiv eggGroupDiv">
-                      {pokemonInfo.egg_groups.map((egg_group, index) => (
-                        <div key={index} className={`eggGroup${index}`}>
-                          {egg_group ===
-                          pokemonInfo.egg_groups[
-                            pokemonInfo.egg_groups.length - 1
-                          ]
-                            ? formatText(egg_group)
-                            : `${formatText(egg_group)},`}
-                        </div>
-                      ))}
+                      {removeNumAndDash(pokemonInfo.egg_groups.join(", "))}
                     </div>
                     <div className="statDiv abilityDiv">
-                      {pokemonInfo.abilities.map((ability, index) => (
-                        <div key={index} className={`ability${index}`}>
-                          {ability ===
-                          pokemonInfo.abilities[
-                            pokemonInfo.abilities.length - 1
-                          ]
-                            ? formatText(ability)
-                            : `${formatText(ability)},`}
-                        </div>
-                      ))}
+                      {removeNumAndDash(pokemonInfo.abilities.join(", "))}
                     </div>
                   </div>
                 </div>
@@ -166,6 +147,8 @@ const PokemonInfo = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <LoadingPage />
       )}
     </>
   );
