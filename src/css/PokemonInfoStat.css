@@ -40,73 +40,73 @@
 }
 
 .normalBgColor {
-  background-color: #a8a878;
+  background-color: var(--normalType-color);
 }
 
 .fireBgColor {
-  background-color: #f08030;
+  background-color: var(--fireType-color);
 }
 
 .waterBgColor {
-  background-color: #6890f0;
+  background-color: var(--waterType-color);
 }
 
 .grassBgColor {
-  background-color: #78c850;
+  background-color: var(--grassType-color);
 }
 
 .electricBgColor {
-  background-color: #f8d030;
+  background-color: var(--electricType-color);
 }
 
 .iceBgColor {
-  background-color: #98d8d8;
+  background-color: var(--iceType-color);
 }
 
 .fightingBgColor {
-  background-color: #c03028;
+  background-color: var(--fightingType-color);
 }
 
 .poisonBgColor {
-  background-color: #a040aa;
+  background-color: var(--poisonType-color);
 }
 
 .groundBgColor {
-  background-color: #e0c068;
+  background-color: var(--groundType-color);
 }
 
 .flyingBgColor {
-  background-color: #a890f0;
+  background-color: var(--flyingType-color);
 }
 
 .psychicBgColor {
-  background-color: #f85888;
+  background-color: var(--psychicType-color);
 }
 
 .bugBgColor {
-  background-color: #a8b820;
+  background-color: var(--bugType-color);
 }
 
 .rockBgColor {
-  background-color: #b8a038;
+  background-color: var(--rockType-color);
 }
 
 .ghostBgColor {
-  background-color: #705898;
+  background-color: var(--ghostType-color);
 }
 
 .darkBgColor {
-  background-color: #705848;
+  background-color: var(--darkType-color);
 }
 
 .dragonBgColor {
-  background-color: #7038f8;
+  background-color: var(--dragonType-color);
 }
 
 .steelBgColor {
-  background-color: #b8b8d0;
+  background-color: var(--steelType-color);
 }
 
 .fairyBgColor {
-  background-color: #ee99ac;
+  background-color: var(--fairyType-color);
 }

@@ -144,109 +144,109 @@
 }
 
 .normalType {
-  color: #a8a878;
+  color: var(--normalType-color);
   background: rgba(168, 168, 120, 0.25);
-  border: 1px solid #a8a878;
+  border: 1px solid var(--normalType-color);
 }
 
 .fireType {
-  color: #f08030;
+  color: var(--fireType-color);
   background: rgba(240, 128, 48, 0.25);
-  border: 1px solid #f08030;
+  border: 1px solid var(--fireType-color);
 }
 
 .waterType {
-  color: #6890f0;
+  color: var(--waterType-color);
   background: rgba(104, 144, 240, 0.25);
-  border: 1px solid #6890f0;
+  border: 1px solid var(--waterType-color);
 }
 
 .grassType {
-  color: #78c850;
+  color: var(--grassType-color);
   background: rgba(120, 200, 80, 0.25);
-  border: 1px solid #78c850;
+  border: 1px solid var(--grassType-color);
 }
 
 .electricType {
-  color: #f8d030;
+  color: var(--electricType-color);
   background: rgba(248, 208, 48, 0.25);
-  border: 1px solid #f8d030;
+  border: 1px solid var(--electricType-color);
 }
 
 .iceType {
-  color: #98d8d8;
+  color: var(--iceType-color);
   background: rgba(152, 216, 216, 0.25);
-  border: 1px solid #98d8d8;
+  border: 1px solid var(--iceType-color);
 }
 
 .fightingType {
-  color: #c03028;
+  color: var(--fightingType-color);
   background: rgba(192, 48, 40, 0.25);
-  border: 1px solid #c03028;
+  border: 1px solid var(--fightingType-color);
 }
 
 .poisonType {
-  color: #a040aa;
+  color: var(--poisonType-color);
   background: rgba(160, 64, 170, 0.25);
   border: 1px solid #a040aa;
 }
 
 .groundType {
-  color: #e0c068;
+  color: var(--groundType-color);
   background: rgba(224, 192, 104, 0.25);
   border: 1px solid #e0c068;
 }
 
 .flyingType {
-  color: #a890f0;
+  color: var(--flyingType-color);
   background: rgba(168, 144, 240, 0.25);
-  border: 1px solid #a890f0;
+  border: 1px solid var(--flyingType-color);
 }
 
 .psychicType {
-  color: #f85888;
+  color: var(--psychicType-color);
   background: rgba(248, 88, 136, 0.25);
-  border: 1px solid #f85888;
+  border: 1px solid var(--psychicType-color);
 }
 
 .bugType {
-  color: #a8b820;
+  color: var(--bugType-color);
   background: rgba(168, 184, 32, 0.25);
-  border: 1px solid #a8b820;
+  border: 1px solid var(--bugType-color);
 }
 
 .rockType {
-  color: #b8a038;
+  color: var(--rockType-color);
   background: rgba(184, 160, 56, 0.25);
-  border: 1px solid #b8a038;
+  border: 1px solid var(--rockType-color);
 }
 
 .ghostType {
-  color: #705898;
+  color: var(--ghostType-color);
   background: rgba(112, 88, 152, 0.25);
-  border: 1px solid #705898;
+  border: 1px solid var(--ghostType-color);
 }
 
 .darkType {
-  color: #705848;
+  color: var(--darkType-color);
   background: rgba(112, 88, 72, 0.25);
-  border: 1px solid #705848;
+  border: 1px solid var(--darkType-color);
 }
 
 .dragonType {
-  color: #7038f8;
+  color: var(--dragonType-color);
   background: rgba(112, 56, 248, 0.25);
-  border: 1px solid #7038f8;
+  border: 1px solid var(--dragonType-color);
 }
 
 .steelType {
-  color: #b8b8d0;
+  color: var(--steelType-color);
   background: rgba(184, 184, 208, 0.25);
-  border: 1px solid #b8b8d0;
+  border: 1px solid var(--steelType-color);
 }
 
 .fairyType {
-  color: #ee99ac;
+  color: var(--fairyType-color);
   background: rgba(238, 153, 172, 0.25);
-  border: 1px solid #ee99ac;
+  border: 1px solid var(--fairyType-color);
 }

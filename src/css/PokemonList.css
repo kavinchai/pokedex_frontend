@@ -1,8 +1,8 @@
 .pokemonListContainer {
-  background: #fdf4ff;
+  background: var(--primary-color);
 }
 .pokemonData {
-  background: #fdf4ff;
+  background: var(--primary-color);
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

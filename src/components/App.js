@@ -1,13 +1,13 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { debounce } from "lodash";
-import { URL } from "../helpers";
+import { URL } from "../constants";
 import SearchBar from "./SearchBar";
 import PokemonList from "./PokemonList";
 import LoadingPage from "./LoadingPage";
 
 import "typeface-roboto";
-import "../css/MainScreen.css";
+import "../css/App.css";
 
 const App = () => {
   const navigate = useNavigate();
